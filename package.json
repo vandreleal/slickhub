@@ -8,6 +8,7 @@
     "npm-run-all": "^4.0.2",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
+    "react-octicons": "^0.1.0",
     "react-social-github": "^1.0.0"
   },
   "devDependencies": {
