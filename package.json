@@ -1,8 +1,12 @@
 {
   "name": "github-trending-explorer",
   "version": "0.1.0",
+  "description": "React application to explore github trending repositories",
+  "homepage": "http://vandreleal.github.io/github-trending-explorer",
   "private": true,
+  "author": "Vandre Leal <vandre.leal.candido@gmail.com> (http://vandreleal.github.io)",
   "dependencies": {
+    "gh-pages": "^1.0.0",
     "material-ui": "^1.0.0-alpha.20",
     "node-sass-chokidar": "0.0.3",
     "npm-run-all": "^4.0.2",

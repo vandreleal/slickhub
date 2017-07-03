@@ -25,7 +25,7 @@ class GithubTrendingRepos extends Component {
     let sort = typeof this.props.sort === 'string' ? this.props.sort : 'stars';
     let order = typeof this.props.order === 'string' ? this.props.order : 'desc';
 
-    window.fetch('https://api.github.com/repositories?sort=' + sort + '&order=' + order + '&per_page=10')
+    window.fetch('https://api.github.com/repositories?sort=' + sort + '&order=' + order + '&created=2017-07-02&per_page=10')
       .then(response => {
         return response.json()
       }).then(json => {
