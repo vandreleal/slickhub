@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Github } from 'react-social-github';
 import './GithubTrendingRepos.css';
 
-const trending_repos = require('./mock/trending_repos.json');
+// const trending_repos = require('./mock/trending_repos.json');
 
 class GithubTrendingRepos extends Component {
 
@@ -25,7 +25,7 @@ class GithubTrendingRepos extends Component {
     let sort = typeof this.props.sort === 'string' ? this.props.sort : 'stars';
     let order = typeof this.props.order === 'string' ? this.props.order : 'desc';
 
-    window.fetch('https://api.github.com/repositories?sort=' + sort + '&order=' + order + '&created=2017-07-02&per_page=10')
+    window.fetch('https://api.github.com/search/repositories?q=pushed:>2017-06-27&sort=' + sort + '&order=' + order)
       .then(response => {
         return response.json()
       }).then(json => {
@@ -33,16 +33,9 @@ class GithubTrendingRepos extends Component {
 
         if(!json.message) {
           this.setState({
-            repos: json || {}
-          });
-
-        // star:data_mock
-        } else {
-          this.setState({
-            repos: trending_repos || {}
+            repos: json.items || {}
           });
         }
-        // end:data_mock
 
         this.setState({
           isLoading: false
@@ -66,10 +59,9 @@ class GithubTrendingRepos extends Component {
     if(this.state.isLoading) { }
 
     return (
-      <div>
+      <div className="gtr">
         { this.mapObject(this.state.repos, function (key, value) {
-          let user = value.owner != null ? value.owner.login : '';
-          return <Github user={user} repo={value.name} key={key} />;
+          return <Github key={key} objRepo={value} />;
         })}
       </div>
     );
