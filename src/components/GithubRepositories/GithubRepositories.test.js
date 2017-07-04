@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import GithubTrendingRepos from './GithubTrendingRepos';
+import GithubRepositories from './GithubRepositories';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<GithubTrendingRepos />, div);
+  ReactDOM.render(<GithubRepositories />, div);
 });
