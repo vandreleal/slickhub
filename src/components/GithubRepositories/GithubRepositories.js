@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Github } from 'react-social-github';
 import './GithubRepositories.css';
 
-// const repositories = require('./mock/repositories.json');
+const repositories = require('./mock/repositories.json');
 
 class GithubTrendingRepos extends Component {
 
@@ -11,7 +11,7 @@ class GithubTrendingRepos extends Component {
 
     this.state = {
       isLoading: true,
-      repos: {}
+      repos: repositories.items
     };
 
     this.closing = false;
@@ -65,28 +65,28 @@ class GithubTrendingRepos extends Component {
     let sort = typeof this.props.sort === 'string' ? this.props.sort : 'stars';
     let order = typeof this.props.order === 'string' ? this.props.order : 'desc';
 
-    window.fetch('https://api.github.com/search/repositories?q=' + query + criteria + ':>=' + interval + '&sort=' + sort + '&order=' + order + '&per_page=50')
-      .then(response => {
-        return response.json()
-      }).then(json => {
-        if(this.closing) return;
-
-        if(!json.message) {
-          this.setState({
-            repos: json.items || {}
-          });
-        }
-
-        this.setState({
-          isLoading: false
-        });
-
-      }).catch(ex => {
-        this.setState({
-          isLoading: false
-        });
-        throw ex;
-      });
+    // window.fetch('https://api.github.com/search/repositories?q=' + query + criteria + ':>=' + interval + '&sort=' + sort + '&order=' + order + '&per_page=50')
+    //   .then(response => {
+    //     return response.json()
+    //   }).then(json => {
+    //     if(this.closing) return;
+    //
+    //     if(!json.message) {
+    //       this.setState({
+    //         repos: json.items || {}
+    //       });
+    //     }
+    //
+    //     this.setState({
+    //       isLoading: false
+    //     });
+    //
+    //   }).catch(ex => {
+    //     this.setState({
+    //       isLoading: false
+    //     });
+    //     throw ex;
+    //   });
   }
 
   mapObject(object, callback) {

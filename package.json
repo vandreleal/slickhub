@@ -7,13 +7,13 @@
   "author": "Vandre Leal <vandre.leal.candido@gmail.com> (http://vandreleal.github.io)",
   "dependencies": {
     "gh-pages": "^1.0.0",
-    "material-ui": "^1.0.0-alpha.20",
+    "material-ui": "^1.0.0-alpha.21",
     "node-sass-chokidar": "0.0.3",
     "npm-run-all": "^4.0.2",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-octicons": "^0.1.0",
-    "react-social-github": "^1.0.0"
+    "react-social-github": "^2.0.0"
   },
   "devDependencies": {
     "react-scripts": "1.0.10"
