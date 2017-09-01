@@ -7,7 +7,7 @@
   "author": "Vandre Leal <vandre.leal.candido@gmail.com> (http://vandreleal.github.io)",
   "dependencies": {
     "gh-pages": "^1.0.0",
-    "material-ui": "^1.0.0-alpha.21",
+    "material-ui": "^0.19.0",
     "node-sass-chokidar": "0.0.3",
     "npm-run-all": "^4.0.2",
     "react": "^15.6.1",

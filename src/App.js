@@ -1,111 +1,133 @@
 import React, { Component } from 'react';
-import { MuiThemeProvider, withStyles, createStyleSheet } from 'material-ui/styles';
-import Grid from 'material-ui/Grid';
-import { LabelRadio, RadioGroup } from 'material-ui/Radio';
-import { FormLabel, FormControl } from 'material-ui/Form';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import SelectField from 'material-ui/SelectField';
+import MenuItem from 'material-ui/MenuItem';
 import GithubRepositories from './components/GithubRepositories/GithubRepositories';
 
-import logo from './logo.svg';
 import './App.css';
 
-const styleSheet = createStyleSheet('FullWidthGrid', theme => ({
-  root: {
-    flexGrow: 1,
-    marginTop: 30,
-  },
-  group: {
-    margin: `${theme.spacing.unit}px 0`,
+import { blue700, blue400, grey300, lightBlue300, lightBlue200, lightBlue100, darkBlack, fullBlack } from 'material-ui/styles/colors';
+const muiTheme = getMuiTheme({
+  palette: {
+    primary1Color: blue700,
+    primary2Color: blue400,
+    primary3Color: grey300,
+    accent1Color: lightBlue300,
+    accent2Color: lightBlue200,
+    accent3Color: lightBlue100,
+    textColor: darkBlack,
+    shadowColor: fullBlack
   }
-}));
+});
+
+const criteria = [
+  { value: 'created', label: 'Created' },
+  { value: 'pushed', label: 'Pushed' }
+];
+
+const sort = [
+  { value: 'stars', label: 'Stars' },
+  { value: 'forks', label: 'Forks' },
+  { value: 'updated', label: 'Updated' }
+];
+
+const order = [
+  { value: 'asc', label: 'Asc' },
+  { value: 'desc', label: 'Desc' }
+];
+
+const interval = [
+  { value: 'today', label: 'Today' },
+  { value: 'this_week', label: 'This Week' },
+  { value: 'this_month', label: 'This Month' },
+  { value: 'this_year', label: 'This Year' }
+];
 
 class App extends Component {
-  state = {
-    criteria: 'created',
-    sort: 'stars',
-    order: 'desc',
-    interval: 'today'
-  };
 
-  handleChange = (name, event, key, value) => {
-    this.setState({ name: value });
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      criteria: 'created',
+      sort: 'stars',
+      order: 'desc',
+      interval: 'today'
+    };
+  }
+
+  handleChange(name, event, key, value) {
+    this.setState({[name]: value});
   };
 
   render() {
-    const classes = this.props.classes;
+    let repos = <GithubRepositories { ...this.state }> </GithubRepositories>;
 
     return (
-      <MuiThemeProvider>
+      <MuiThemeProvider muiTheme={muiTheme}>
         <div className="App">
           <div className="App-header">
             <div>
-              <Grid container gutter={16}>
-                <Grid item xs={12} sm={4} md={3} lg={3}>
-                  <img src={logo} className="App-logo" alt="logo" />
-                  <h2>Github Explorer</h2>
-                </Grid>
+                <SelectField
+                  floatingLabelText="Criteria"
+                  value={this.state.criteria}
+                  onChange={this.handleChange.bind(this, 'criteria')}
+                >
+                {
+                  criteria.map((obj, index) => {
+                      return <MenuItem value={obj.value} primaryText={obj.label} key={index} />;
+                  })
+                }
+                </SelectField>
+            </div>
 
-                <Grid item xs={12} sm={4} md={2} lg={2}>
-                  <FormControl>
-                    <RadioGroup
-                      aria-label="Criteria"
-                      name="criteria"
-                      selectedValue={this.state.criteria}
-                      onChange={this.handleChange.bind(this, 'criteria')}
-                    >
-                      <LabelRadio label="Created" value="created" />
-                      <LabelRadio label="Pushed" value="pushed" />
-                    </RadioGroup>
-                  </FormControl>
-                </Grid>
+            <div>
+                <SelectField
+                  floatingLabelText="Sort"
+                  value={this.state.sort}
+                  onChange={this.handleChange.bind(this, 'sort')}
+                >
+                {
+                  sort.map((obj, index) => {
+                      return <MenuItem value={obj.value} primaryText={obj.label} key={index} />;
+                  })
+                }
+                </SelectField>
+            </div>
 
-                <Grid item xs={12} sm={4} md={2} lg={2}>
-                  <FormControl>
-                    <RadioGroup
-                      aria-label="Sort"
-                      name="sort"
-                      selectedValue={this.state.sort}
-                      onChange={this.handleChange}
-                    >
-                      <LabelRadio label="Stars" value="stars" />
-                      <LabelRadio label="Forks" value="forks" />
-                    </RadioGroup>
-                  </FormControl>
-                </Grid>
+            <div>
+                <SelectField
+                  floatingLabelText="Order"
+                  value={this.state.order}
+                  onChange={this.handleChange.bind(this, 'order')}
+                >
+                {
+                  order.map((obj, index) => {
+                      return <MenuItem value={obj.value} primaryText={obj.label} key={index} />;
+                  })
+                }
+                </SelectField>
+            </div>
 
-                <Grid item xs={12} sm={4} md={2} lg={2}>
-                  <FormControl>
-                    <RadioGroup
-                      aria-label="Order"
-                      name="order"
-                      selectedValue={this.state.order}
-                      onChange={this.handleChange}
-                    >
-                      <LabelRadio label="Desc" value="desc" />
-                      <LabelRadio label="Asc" value="asc" />
-                    </RadioGroup>
-                  </FormControl>
-                </Grid>
-
-                <Grid item xs={12} sm={4} md={2} lg={2}>
-                  <FormControl>
-                    <RadioGroup
-                      aria-label="Interval"
-                      name="interval"
-                      selectedValue={this.state.interval}
-                      onChange={this.handleChange}
-                    >
-                      <LabelRadio label="Today" value="today" />
-                      <LabelRadio label="This Week" value="this_week" />
-                      <LabelRadio label="This Month" value="this_month" />
-                    </RadioGroup>
-                  </FormControl>
-                </Grid>
-
-              </Grid>
+            <div>
+                <SelectField
+                  floatingLabelText="Interval"
+                  value={this.state.interval}
+                  onChange={this.handleChange.bind(this, 'interval')}
+                >
+                {
+                  interval.map((obj, index) => {
+                      return <MenuItem value={obj.value} primaryText={obj.label} key={index} />;
+                  })
+                }
+                </SelectField>
             </div>
           </div>
 
-          <GithubRepositories criteria={this.state.criteria} sort={this.state.sort} order={this.state.order} interval={this.state.interval} />
+          <div className="preview">
+            { repos }
+          </div>
         </div>
       </MuiThemeProvider>
     );
