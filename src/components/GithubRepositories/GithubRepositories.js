@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 import { Github } from 'react-social-github';
 import './GithubRepositories.css';
 
@@ -12,7 +11,7 @@ class GithubRepositories extends Component {
 
     this.config = {
       query: '',
-      criteria: 'created',
+      criteria: 'pushed',
       sort: 'stars',
       order: 'desc',
       interval: 'today',
@@ -77,11 +76,15 @@ class GithubRepositories extends Component {
 
         if(!json.message) {
           this.setState({
-            repos: json.items || {}
+            isLoading: false,
+            repos: json.items || {},
           });
         }
 
       }).catch(ex => {
+        this.setState({
+          isLoading: false
+        });
         throw ex;
       });
   }
@@ -100,8 +103,6 @@ class GithubRepositories extends Component {
         if(this.closing) return;
 
         if(!json.message) {
-          ReactDOM.unmountComponentAtNode(ReactDOM.findDOMNode(document.getElementById('repos')));
-
           this.setState({
             repos: json.items || {}
           });

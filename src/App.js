@@ -40,8 +40,7 @@ const order = [
 const interval = [
   { value: 'today', label: 'Today' },
   { value: 'this_week', label: 'This Week' },
-  { value: 'this_month', label: 'This Month' },
-  { value: 'this_year', label: 'This Year' }
+  { value: 'this_month', label: 'This Month' }
 ];
 
 class App extends Component {
@@ -50,7 +49,7 @@ class App extends Component {
     super(props);
 
     this.state = {
-      criteria: 'created',
+      criteria: 'pushed',
       sort: 'stars',
       order: 'desc',
       interval: 'today'
