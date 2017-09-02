@@ -5,6 +5,16 @@ import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 import GithubRepositories from './components/GithubRepositories/GithubRepositories';
 
+import AppBar from 'material-ui/AppBar';
+import IconButton from 'material-ui/IconButton';
+import IconMenu from 'material-ui/IconMenu';
+import Divider from 'material-ui/Divider';
+import ArrowDropRight from 'material-ui/svg-icons/navigation-arrow-drop-right';
+import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
+import { MarkGithubIcon } from 'react-octicons';
+import { SettingsIcon } from 'react-octicons';
+
+
 import './App.css';
 
 import { blue700, blue400, grey300, lightBlue300, lightBlue200, lightBlue100, darkBlack, fullBlack } from 'material-ui/styles/colors';
@@ -33,8 +43,8 @@ const sort = [
 ];
 
 const order = [
-  { value: 'asc', label: 'Asc' },
-  { value: 'desc', label: 'Desc' }
+  { value: 'asc', label: 'Ascending' },
+  { value: 'desc', label: 'Descending' }
 ];
 
 const interval = [
@@ -56,7 +66,7 @@ class App extends Component {
     };
   }
 
-  handleChange(name, event, key, value) {
+  handleChange(name, value) {
     this.setState({[name]: value});
   };
 
@@ -66,7 +76,69 @@ class App extends Component {
     return (
       <MuiThemeProvider muiTheme={muiTheme}>
         <div className="App">
-          <div className="App-header">
+          <AppBar
+            className="app-bar"
+            title="Github Trending Repositories"
+            iconElementLeft={<IconButton><MarkGithubIcon /></IconButton>}
+            iconElementRight={
+              <IconMenu
+                iconButtonElement={<IconButton><SettingsIcon /></IconButton>}
+                anchorOrigin={{horizontal: 'left', vertical: 'top'}}
+                targetOrigin={{horizontal: 'left', vertical: 'top'}}
+              >
+
+                <MenuItem primaryText="Filters" disabled={true} />
+                <Divider />
+
+                <MenuItem
+                  primaryText="Criteria"
+                  rightIcon={<ArrowDropRight />}
+                  menuItems={[
+                    criteria.map((obj, index) => {
+                        return <MenuItem value={obj.value} primaryText={obj.label} key={index} onClick={ this.handleChange.bind(this, 'criteria', obj.value) } />;
+                    })
+                  ]}
+                />
+
+                <MenuItem
+                  primaryText="Sort"
+                  rightIcon={<ArrowDropRight />}
+                  menuItems={[
+                    sort.map((obj, index) => {
+                        return <MenuItem value={obj.value} primaryText={obj.label} key={index} onClick={this.handleChange.bind(this, 'sort', obj.value)} />;
+                    })
+                  ]}
+                />
+
+                <MenuItem
+                  primaryText="Order"
+                  rightIcon={<ArrowDropRight />}
+                  menuItems={[
+                    order.map((obj, index) => {
+                        return <MenuItem value={obj.value} primaryText={obj.label} key={index} onClick={this.handleChange.bind(this, 'order', obj.value)} />;
+                    })
+                  ]}
+                />
+
+                <MenuItem
+                  primaryText="Interval"
+                  rightIcon={<ArrowDropRight />}
+                  menuItems={[
+                    interval.map((obj, index) => {
+                        return <MenuItem value={obj.value} primaryText={obj.label} key={index} onClick={this.handleChange.bind(this, 'interval', obj.value)} />;
+                    })
+                  ]}
+                />
+
+              </IconMenu>
+            }
+          />
+
+          <div className="app-header">
+            <h1>You are viewing repositories that were {this.state.criteria} {this.state.interval} sortered by {this.state.sort} in {this.state.order} order</h1>
+          </div>
+
+          {/* <div className="App-header">
             <div>
                 <SelectField
                   floatingLabelText="Criteria"
@@ -122,7 +194,7 @@ class App extends Component {
                 }
                 </SelectField>
             </div>
-          </div>
+          </div> */}
 
           <div className="preview">
             { repos }

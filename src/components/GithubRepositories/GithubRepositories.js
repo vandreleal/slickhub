@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
+import Slider from 'react-slick';
 import { Github } from 'react-social-github';
+
+import "../../../node_modules/slick-carousel/slick/slick.css";
+import "../../../node_modules/slick-carousel/slick/slick-theme.css";
 import './GithubRepositories.css';
 
 const repositories = require('./mock/repositories.json');
@@ -120,10 +124,41 @@ class GithubRepositories extends Component {
       return <Github key={key} objRepo={value} />
     });
 
+    let settings = {
+      arrows: true,
+      // dots: true,
+      infinite: false,
+      speed: 500,
+      slidesToShow: 1,
+      variableWidth: true,
+      // centerMode: true,
+      // centerPadding: '60px',
+      responsive: [
+        {
+          breakpoint: 768,
+          settings: {
+            // arrows: false,
+            // centerMode: true,
+            // centerPadding: '40px',
+            // slidesToShow: 1
+          }
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            // arrows: false,
+            // centerMode: true,
+            // centerPadding: '40px',
+            // slidesToShow: 1
+          }
+        }
+      ]
+    };
+
     return (
-      <div id="gtr" className="gtr">
-        { repos }
-      </div>
+      <Slider {...settings} className="slick-github">
+          { repos }
+      </Slider>
     );
   }
 }
