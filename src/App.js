@@ -1,28 +1,34 @@
 import React, { Component } from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import SelectField from 'material-ui/SelectField';
-import MenuItem from 'material-ui/MenuItem';
-import GithubRepositories from './components/GithubRepositories/GithubRepositories';
-
 import AppBar from 'material-ui/AppBar';
+import MenuItem from 'material-ui/MenuItem';
 import IconButton from 'material-ui/IconButton';
 import IconMenu from 'material-ui/IconMenu';
-import Divider from 'material-ui/Divider';
+// import Divider from 'material-ui/Divider';
+// import SelectField from 'material-ui/SelectField';
 import ArrowDropRight from 'material-ui/svg-icons/navigation-arrow-drop-right';
-import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
-import { MarkGithubIcon } from 'react-octicons';
 import { SettingsIcon } from 'react-octicons';
 
+import {
+  indigo700,
+  indigo500,
+  indigo300,
+  lightBlue300,
+  lightBlue200,
+  lightBlue100,
+  darkBlack,
+  fullBlack
+} from 'material-ui/styles/colors';
 
+import GithubRepositories from './components/GithubRepositories/GithubRepositories';
 import './App.css';
 
-import { blue700, blue400, grey300, lightBlue300, lightBlue200, lightBlue100, darkBlack, fullBlack } from 'material-ui/styles/colors';
 const muiTheme = getMuiTheme({
   palette: {
-    primary1Color: blue700,
-    primary2Color: blue400,
-    primary3Color: grey300,
+    primary1Color: indigo700,
+    primary2Color: indigo500,
+    primary3Color: indigo300,
     accent1Color: lightBlue300,
     accent2Color: lightBlue200,
     accent3Color: lightBlue100,
@@ -70,6 +76,10 @@ class App extends Component {
     this.setState({[name]: value});
   };
 
+  handleSelectChange(name, event, key, value) {
+    this.setState({[name]: value});
+  };
+
   render() {
     let repos = <GithubRepositories { ...this.state }> </GithubRepositories>;
 
@@ -78,17 +88,14 @@ class App extends Component {
         <div className="App">
           <AppBar
             className="app-bar"
-            title="Github Trending Repositories"
-            iconElementLeft={<IconButton><MarkGithubIcon /></IconButton>}
+            showMenuIconButton={false}
+            title="Gitty"
             iconElementRight={
               <IconMenu
                 iconButtonElement={<IconButton><SettingsIcon /></IconButton>}
                 anchorOrigin={{horizontal: 'left', vertical: 'top'}}
                 targetOrigin={{horizontal: 'left', vertical: 'top'}}
               >
-
-                <MenuItem primaryText="Filters" disabled={true} />
-                <Divider />
 
                 <MenuItem
                   primaryText="Criteria"
@@ -135,10 +142,12 @@ class App extends Component {
           />
 
           <div className="app-header">
-            <h1>You are viewing repositories that were {this.state.criteria} {this.state.interval} sortered by {this.state.sort} in {this.state.order} order</h1>
+            <h1 className="app-header--description">
+              You are viewing repositories that were { this.state.criteria } { this.state.interval } sortered by { this.state.sort } in { this.state.order } order
+            </h1>
           </div>
 
-          {/* <div className="App-header">
+          {/* <div className="app-header">
             <div>
                 <SelectField
                   floatingLabelText="Criteria"
@@ -196,7 +205,7 @@ class App extends Component {
             </div>
           </div> */}
 
-          <div className="preview">
+          <div className="app-preview">
             { repos }
           </div>
         </div>

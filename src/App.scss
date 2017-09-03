@@ -1,8 +1,14 @@
+// @import url('https://fonts.googleapis.com/css?family=Muli:400,700,900');
+
 .app {
   &-bar {
     svg {
       width: 24px;
       height: 24px;
+    }
+
+    h1 {
+      text-align: center;
     }
   }
 
@@ -10,10 +16,43 @@
     width: 100%;
     display: inline-block;
     box-sizing: border-box;
-    padding: 64px;
-    background-color: #8BC6EC;
-    background-image: linear-gradient(315deg, #8BC6EC 0%, #9599E2 100%);
-    color: #fff;
+    padding: 32px 16px;
+    // background-color: #8BC6EC;
+    // background-image: linear-gradient(315deg, #8BC6EC 0%, #9599E2 100%);
+    // color: #fff;
+    font-weight: 900;
     text-align: center;
+    color: #333;
+
+    &--description {
+      max-width: 600px;
+      margin: 0 auto;
+      font-size: 2.5vh;
+    }
+  }
+
+  &-preview {
+    margin: 0 16px;
   }
 }
+@media only screen and (max-width: 480px) {
+  .app {
+    &-header {
+      padding: 16px;
+
+      &--description {
+        display: none;
+      }
+    }
+  }
+}
+
+// @media only screen and (min-width: 481px) {
+//   .app {
+//     &-bar {
+//       h1 {
+//         text-align: center;
+//       }
+//     }
+//   }
+// }

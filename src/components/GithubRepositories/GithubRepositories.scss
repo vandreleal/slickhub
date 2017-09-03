@@ -1,21 +1,41 @@
 $slick-btn-size: 32px;
 
 .slick {
-
   &-github {
-    margin: 32px 64px;
+    margin: 0 32px;
 
     .rsg-github {
-      margin: 16px;
+      margin: 8px;
       vertical-align: top;
+    }
+
+    @media only screen and (max-width: 480px) {
+      .rsg-github {
+        width: 250px;
+      }
+
+      .rsg-github-wrapper {
+        display: block;
+        min-width: 0;
+      }
+
+      .rsg-counters {
+        .rsg-item {
+          zoom: 0.8;
+        }
+        .rsg-item:not(:last-child) {
+          border: none;
+        }
+      }
     }
   }
 
   &-list {
-    padding: 0 16px;
+    padding: 0 8px;
   }
 
-  &-prev, &-next {
+  &-next,
+  &-prev {
     width: $slick-btn-size;
     height: $slick-btn-size;
 
