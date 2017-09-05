@@ -73,7 +73,7 @@ class App extends Component {
 
     this.config = {
       app: {
-        name: 'Github Explorer',
+        name: 'SlickHub',
         year: new Date().getFullYear(),
         author: 'Vandré Leal',
         author_url: 'https://vandreleal.github.io'
