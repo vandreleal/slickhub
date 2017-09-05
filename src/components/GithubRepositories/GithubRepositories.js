@@ -130,10 +130,13 @@ class GithubRepositories extends Component {
     });
 
     let settings = {
-      arrows: true,
+      arrows: false,
+      dots: true,
       infinite: true,
       initialSlide: 1,
-      speed: 300,
+      speed: 1000,
+      autoplay: true,
+      autoplaySpeed: 5000,
       variableWidth: true,
       slidesToScroll: 5,
       responsive: [

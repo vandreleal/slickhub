@@ -6,12 +6,6 @@ $color-text: #000;
   min-width: 360px;
 
   &-bar {
-    h1 {
-      font-size: 18px !important;
-      text-align: center;
-      text-transform: uppercase;
-    }
-
     svg {
       width: 24px;
       height: 24px;
@@ -35,7 +29,7 @@ $color-text: #000;
     color: $color-text;
 
     &--description {
-      margin: 16px 48px;
+      margin: 16px 32px;
 
       .headline {
         color: lighten($color-text, 30%);
@@ -64,7 +58,8 @@ $color-text: #000;
 
     &-bar {
       h1 {
-        font-size: 24px !important;
+        text-align: center;
+        text-transform: uppercase;
       }
 
       &--options {
@@ -140,17 +135,17 @@ $color-text: #000;
     max-width: 1460px;
   }
 }
-@media only screen and (min-width: 568px) and (min-height: 940px) {
-  .app {
-    &-footer {
-      display: block;
-      position: absolute;
-      bottom: 20px;
-      left: 0;
-      width: 100%;
-      margin: 16px 0;
-      color: lighten($color-text, 70%);
-      text-align: center;
-    }
-  }
-}
+// @media only screen and (min-width: 568px) and (min-height: 940px) {
+//   .app {
+//     &-footer {
+//       display: block;
+//       position: absolute;
+//       bottom: 10px;
+//       left: 0;
+//       width: 100%;
+//       margin: 16px 0;
+//       color: lighten($color-text, 70%);
+//       text-align: center;
+//     }
+//   }
+// }

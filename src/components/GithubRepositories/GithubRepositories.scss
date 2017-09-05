@@ -6,13 +6,13 @@ $slick-btn-size: 32px;
 
 .slick {
   &-github {
-    margin: 0 48px;
+    margin: 0 32px;
 
     .rsg-title {
       position: absolute;
-      left: 30px;
+      left: 15px;
       width: 18px;
-      margin-top: 16px;
+      margin-top: 20px;
       padding: 8px;
       font-size: 16px;
       font-weight: 300;
@@ -29,6 +29,7 @@ $slick-btn-size: 32px;
 
       .rsg-avatar {
         margin: 0 auto;
+        border-radius: 6px;
       }
     }
 
