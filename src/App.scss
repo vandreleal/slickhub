@@ -58,7 +58,7 @@ $color-github: #24292e;
   &-footer {
     display: inline-block;
     width: 100%;
-    margin: 40px auto;
+    margin: 30px auto;
     color: lighten($color-text, 70%);
     text-align: center;
   }
@@ -82,7 +82,7 @@ $color-github: #24292e;
       display: flex;
       align-items: flex-end;
       justify-content: center;
-      margin: 10px 40px 0;
+      margin: 20px 40px 0;
 
       &--icon {
         display: flex;
@@ -128,9 +128,13 @@ $color-github: #24292e;
         margin-right: 0;
 
         .headline {
-          font-size: 36px;
+          font-size: 32px;
         }
       }
+    }
+
+    &-footer {
+      margin: 60px auto 40px;
     }
   }
 }

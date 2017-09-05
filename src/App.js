@@ -245,7 +245,7 @@ class App extends Component {
             </div>
 
             <h1 className="pure-g app-header--description">
-              <div className="pure-u pure-u-lg-3-4 pure-u-xl-2-3 headline">
+              <div className="pure-u pure-u-lg-3-4 pure-u-xl-3-5 headline">
                 These are the <span className="highlight">{ this.state.limit }</span> repositories that were <span className="highlight">{ this.state.criteria }</span> <span className="highlight">{ this.state.interval.replace('_', ' ') }</span> sortered by <span className="highlight">{ this.state.sort }</span> in <span className="highlight">{ this.state.order }</span> order
               </div>
             </h1>
