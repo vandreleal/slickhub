@@ -60,6 +60,14 @@ const interval = [
   { value: 'this_month', label: 'This Month' }
 ];
 
+const limit = [
+  { value: 10, label: '10' },
+  { value: 25, label: '25' },
+  { value: 50, label: '50' },
+  { value: 75, label: '75' },
+  { value: 100, label: '100' }
+];
+
 class App extends Component {
 
   constructor(props) {
@@ -78,7 +86,8 @@ class App extends Component {
       criteria: 'pushed',
       sort: 'stars',
       order: 'desc',
-      interval: 'today'
+      interval: 'today',
+      limit: 25
     };
   }
 
@@ -158,9 +167,9 @@ class App extends Component {
 
           <div className="app-header">
             <div className="pure-g app-filter">
-              <div className="pure-u-1 pure-u-lg-4-24 app-filter--icon">
+              <div className="pure-u-1 pure-u-lg-2-24 app-filter--icon">
                 <SettingsIcon />
-                <span>Filters</span>
+                {/* <span>Filters</span> */}
               </div>
               <div className="pure-u-1-2 pure-u-lg-5-24">
                   <SelectField
@@ -207,7 +216,7 @@ class App extends Component {
                   </SelectField>
               </div>
 
-              <div className="pure-u-1-2 pure-u-lg-5-24">
+              <div className="pure-u-7-24 pure-u-lg-5-24">
                   <SelectField
                     className="app-filter--option"
                     floatingLabelText="Interval"
@@ -216,6 +225,21 @@ class App extends Component {
                   >
                   {
                     interval.map((obj, index) => {
+                        return <MenuItem value={obj.value} primaryText={obj.label} key={index} />;
+                    })
+                  }
+                  </SelectField>
+              </div>
+
+              <div className="pure-u-5-24 pure-u-lg-2-24">
+                  <SelectField
+                    className="app-filter--option"
+                    floatingLabelText="Limit"
+                    value={this.state.limit}
+                    onChange={this.handleSelectChange.bind(this, 'limit')}
+                  >
+                  {
+                    limit.map((obj, index) => {
                         return <MenuItem value={obj.value} primaryText={obj.label} key={index} />;
                     })
                   }

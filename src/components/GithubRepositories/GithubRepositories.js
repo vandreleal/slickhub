@@ -6,8 +6,6 @@ import "../../../node_modules/slick-carousel/slick/slick.css";
 import "../../../node_modules/slick-carousel/slick/slick-theme.css";
 import './GithubRepositories.css';
 
-const repositories = require('./mock/repositories.json');
-
 class GithubRepositories extends Component {
 
   constructor() {
@@ -19,7 +17,7 @@ class GithubRepositories extends Component {
       sort: 'stars',
       order: 'desc',
       interval: 'today',
-      repos: repositories.items
+      limit: 25
     };
 
     this.state = {
@@ -72,7 +70,7 @@ class GithubRepositories extends Component {
   }
 
   componentWillMount() {
-    window.fetch('https://api.github.com/search/repositories?q=' + this.config.query + this.config.criteria + ':>=' + this.getDate(this.config.interval) + '&sort=' + this.config.sort + '&order=' + this.config.order + '&per_page=50')
+    window.fetch('https://api.github.com/search/repositories?q=' + this.config.query + this.config.criteria + ':>=' + this.getDate(this.config.interval) + '&sort=' + this.config.sort + '&order=' + this.config.order + '&per_page=' + this.config.limit)
       .then(response => {
         return response.json()
       }).then(json => {
@@ -99,8 +97,9 @@ class GithubRepositories extends Component {
     let sort = typeof props.sort === 'string' ? props.sort : this.config.sort;
     let order = typeof props.order === 'string' ? props.order : this.config.order;
     let interval = typeof props.interval === 'string' ? this.getDate(props.interval) : this.getDate(this.config.interval);
+    let limit = typeof props.limit === 'number' ? props.limit : this.config.limit;
 
-    window.fetch('https://api.github.com/search/repositories?q=' + query + criteria + ':>=' + interval + '&sort=' + sort + '&order=' + order + '&per_page=50')
+    window.fetch('https://api.github.com/search/repositories?q=' + query + criteria + ':>=' + interval + '&sort=' + sort + '&order=' + order + '&per_page=' + limit)
       .then(response => {
         return response.json()
       }).then(json => {
@@ -123,7 +122,7 @@ class GithubRepositories extends Component {
     let repos = this.state.repos.map(function(value, key){
       return (
         <div>
-          <h2 className="rsg-title">{key + 1}</h2>
+          <h2 className="rsg-index">{key + 1}</h2>
           <Github key={key} objRepo={value} />
         </div>
       );
@@ -155,12 +154,16 @@ class GithubRepositories extends Component {
         {
           breakpoint: 925,
           settings: {
+            arrows: true,
+            dots: false,
             slidesToScroll: 2
           }
         },
         {
           breakpoint: 660,
           settings: {
+            arrows: true,
+            dots: false,
             slidesToScroll: 1,
           }
         },

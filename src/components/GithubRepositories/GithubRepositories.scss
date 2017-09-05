@@ -1,4 +1,5 @@
 $slick-btn-size: 32px;
+$color-github: #24292e;
 
 .is-loading {
   display: none;
@@ -6,11 +7,11 @@ $slick-btn-size: 32px;
 
 .slick {
   &-github {
-    margin: 0 32px;
+    margin: 0 24px;
 
-    .rsg-title {
+    .rsg-index {
       position: absolute;
-      left: 15px;
+      left: 8px;
       width: 18px;
       margin-top: 20px;
       padding: 8px;
@@ -18,14 +19,13 @@ $slick-btn-size: 32px;
       font-weight: 300;
       text-align: center;
       color: #ddd;
-      background-color: #444;
+      background-color: lighten($color-github, 20%);
       border-radius: 50%;
     }
 
     .rsg-github {
       width: 100%;
       margin: 8px 16px 16px 0;
-      vertical-align: top;
 
       .rsg-avatar {
         margin: 0 auto;
@@ -41,11 +41,7 @@ $slick-btn-size: 32px;
 
     .rsg-counters {
       .rsg-item {
-        zoom: 0.8;
-      }
-
-      .rsg-item:not(:last-child) {
-        border: none;
+        zoom: 0.85;
       }
     }
   }
@@ -61,7 +57,7 @@ $slick-btn-size: 32px;
 
     &:before {
       font-size: $slick-btn-size;
-      color: #333;
+      color: lighten($color-github, 10%);
     }
   }
 
@@ -78,7 +74,7 @@ $slick-btn-size: 32px;
     &-github {
       margin: 0 32px;
 
-      .rsg-title {
+      .rsg-index {
         position: relative;
         left: 10px;
         top: 25px;

@@ -1,11 +1,15 @@
 $color-bg: #f4f6f8;
 $color-border: #ddd;
 $color-text: #000;
+$color-highlight: #ffecB3;
+$color-github: #24292e;
 
 .app {
   min-width: 360px;
 
   &-bar {
+    background-color: $color-github !important;
+
     svg {
       width: 24px;
       height: 24px;
@@ -29,7 +33,7 @@ $color-text: #000;
     color: $color-text;
 
     &--description {
-      margin: 16px 32px;
+      margin: 16px 24px;
 
       .headline {
         color: lighten($color-text, 30%);
@@ -41,9 +45,9 @@ $color-text: #000;
       }
 
       .highlight {
-        font-weight: 700;
-        background-color: #FFECB3;
         padding: 0 8px;
+        font-weight: 700;
+        background-color: $color-highlight;
       }
     }
   }
@@ -78,22 +82,22 @@ $color-text: #000;
         align-items: flex-end;
         margin-bottom: 16px;
 
-        span {
-          display: block;
-          margin-left: 8px;
-          font-weight: 400px;
-          font-size: 20px;
-          text-transform: uppercase;
-        }
+        // span {
+        //   display: block;
+        //   margin-left: 8px;
+        //   font-weight: 400px;
+        //   font-size: 20px;
+        //   text-transform: uppercase;
+        // }
 
         svg {
-          width: 24px;
-          height: 24px;
+          width: 32px;
+          height: 32px;
         }
       }
 
       &--option {
-        width: 90% !important;
+        width: 80% !important;
       }
     }
 
