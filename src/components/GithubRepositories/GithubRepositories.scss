@@ -1,5 +1,6 @@
 $slick-btn-size: 32px;
 $color-github: #24292e;
+$color-error: #EF5350;
 
 .is {
   &-visible {
@@ -19,6 +20,18 @@ $color-github: #24292e;
   &-loading {
     display: none !important;
   }
+}
+
+.message {
+  display: inline-block;
+  box-sizing: border-box;
+  margin: 16px 24px 0;
+  color: $color-error;
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 140%;
+  word-spacing: 0.1em;
 }
 
 .slick {
@@ -88,6 +101,10 @@ $color-github: #24292e;
 @media only screen and (min-width: 568px) {
   .refresh {
     transform: translate(10040px, 10020px) !important;
+  }
+  .message {
+    margin-left: 40px;
+    font-size: 24px;
   }
   .slick {
     &-github {

@@ -30,6 +30,7 @@ class GithubRepositories extends Component {
     };
 
     this.state = {
+      hasError: false,
       isLoading: true,
       repos: []
     };
@@ -87,6 +88,7 @@ class GithubRepositories extends Component {
 
         if(!json.message) {
           this.setState({
+            hasError: false,
             isLoading: false,
             repos: json.items || {},
           });
@@ -94,6 +96,7 @@ class GithubRepositories extends Component {
 
       }).catch(ex => {
         this.setState({
+          hasError: true,
           isLoading: false
         });
         throw ex;
@@ -120,6 +123,7 @@ class GithubRepositories extends Component {
 
         if(!json.message) {
           this.setState({
+            hasError: false,
             isLoading: false,
             repos: json.items || {}
           });
@@ -127,6 +131,7 @@ class GithubRepositories extends Component {
 
       }).catch(ex => {
         this.setState({
+          hasError: true,
           isLoading: false
         });
         throw ex;
@@ -187,15 +192,22 @@ class GithubRepositories extends Component {
       ]
     };
 
-    let sliderClasses = "";
-    let refreshClasses = "";
+    let sliderClasses = "",
+      refreshClasses = "",
+      messageClasses = "message not-visible";
 
-    if (this.state.isLoading) {
+    if (this.state.hasError) {
+      messageClasses = 'message is-visible';
       sliderClasses = "slick-github not-visible";
-      refreshClasses = "refresh is-loading";
-    } else {
-      sliderClasses = "slick-github is-visible";
       refreshClasses = "refresh not-loading";
+    } else {
+      if (this.state.isLoading) {
+        sliderClasses = "slick-github not-visible";
+        refreshClasses = "refresh is-loading";
+      } else {
+        sliderClasses = "slick-github is-visible";
+        refreshClasses = "refresh not-loading";
+      }
     }
 
     return (
@@ -208,6 +220,9 @@ class GithubRepositories extends Component {
           style={style.refresh}
           className={refreshClasses}
         />
+        <h3 className={messageClasses}>
+          There was an error retrieving the data. Please try again later.
+        </h3>
         <Slider {...settings} className={sliderClasses}>
             { repos }
         </Slider>
