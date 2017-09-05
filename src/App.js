@@ -88,8 +88,11 @@ class App extends Component {
       interval: 'today',
       limit: 25
     };
+  }
 
+  componentDidMount() {
     ReactGA.initialize('UA-105985893-1');
+    ReactGA.pageview(window.location.pathname);
   }
 
   handleChange(name, value) {
