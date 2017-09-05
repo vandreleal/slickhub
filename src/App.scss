@@ -16,8 +16,7 @@ $color-github: #24292e;
     }
   }
 
-  &-filter,
-  &-footer {
+  &-filter {
     display: none;
   }
 
@@ -53,7 +52,15 @@ $color-github: #24292e;
   }
 
   &-content {
-    margin: -20vh 0 0;
+    margin: -20vh 0 30px;
+  }
+
+  &-footer {
+    display: inline-block;
+    width: 100%;
+    margin: 40px auto;
+    color: lighten($color-text, 70%);
+    text-align: center;
   }
 }
 @media only screen and (min-width: 568px) {
@@ -75,20 +82,12 @@ $color-github: #24292e;
       display: flex;
       align-items: flex-end;
       justify-content: center;
-      margin: 30px 40px 0;
+      margin: 10px 40px 0;
 
       &--icon {
         display: flex;
         align-items: flex-end;
         margin-bottom: 16px;
-
-        // span {
-        //   display: block;
-        //   margin-left: 8px;
-        //   font-weight: 400px;
-        //   font-size: 20px;
-        //   text-transform: uppercase;
-        // }
 
         svg {
           width: 32px;
@@ -98,6 +97,7 @@ $color-github: #24292e;
 
       &--option {
         width: 80% !important;
+        font-size: 18px !important;
       }
     }
 
@@ -125,7 +125,7 @@ $color-github: #24292e;
   .app {
     &-header {
       &--description {
-        margin: 60px 40px;
+        margin-right: 0;
 
         .headline {
           font-size: 36px;
@@ -139,17 +139,3 @@ $color-github: #24292e;
     max-width: 1460px;
   }
 }
-// @media only screen and (min-width: 568px) and (min-height: 940px) {
-//   .app {
-//     &-footer {
-//       display: block;
-//       position: absolute;
-//       bottom: 10px;
-//       left: 0;
-//       width: 100%;
-//       margin: 16px 0;
-//       color: lighten($color-text, 70%);
-//       text-align: center;
-//     }
-//   }
-// }

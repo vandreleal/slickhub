@@ -9,16 +9,14 @@ import IconMenu from 'material-ui/IconMenu';
 import SelectField from 'material-ui/SelectField';
 import ArrowDropRight from 'material-ui/svg-icons/navigation-arrow-drop-right';
 import { SettingsIcon } from 'react-octicons';
-// import { SearchIcon } from 'react-octicons';
-// import { Github } from 'react-social-github';
 
 import {
-  indigo700,
-  indigo500,
-  indigo300,
-  blue500,
-  blue300,
-  blue100,
+  grey900,
+  grey700,
+  grey500,
+  blueGrey500,
+  blueGrey300,
+  blueGrey100,
   darkBlack,
   fullBlack
 } from 'material-ui/styles/colors';
@@ -28,12 +26,12 @@ import './App.css';
 
 const muiTheme = getMuiTheme({
   palette: {
-    primary1Color: indigo700,
-    primary2Color: indigo500,
-    primary3Color: indigo300,
-    accent1Color: blue500,
-    accent2Color: blue300,
-    accent3Color: blue100,
+    primary1Color: grey900,
+    primary2Color: grey700,
+    primary3Color: grey500,
+    accent1Color: blueGrey500,
+    accent2Color: blueGrey300,
+    accent3Color: blueGrey100,
     textColor: darkBlack,
     shadowColor: fullBlack
   }
@@ -169,7 +167,6 @@ class App extends Component {
             <div className="pure-g app-filter">
               <div className="pure-u-1 pure-u-lg-2-24 app-filter--icon">
                 <SettingsIcon />
-                {/* <span>Filters</span> */}
               </div>
               <div className="pure-u-1-2 pure-u-lg-5-24">
                   <SelectField
@@ -248,8 +245,8 @@ class App extends Component {
             </div>
 
             <h1 className="pure-g app-header--description">
-              <div className="pure-u pure-u-lg-3-5 headline">
-                These are the repositories that were <span className="highlight">{ this.state.criteria }</span> <span className="highlight">{ this.state.interval.replace('_', ' ') }</span> sortered by <span className="highlight">{ this.state.sort }</span> in <span className="highlight">{ this.state.order }</span> order
+              <div className="pure-u pure-u-lg-3-4 pure-u-xl-2-3 headline">
+                These are the <span className="highlight">{ this.state.limit }</span> repositories that were <span className="highlight">{ this.state.criteria }</span> <span className="highlight">{ this.state.interval.replace('_', ' ') }</span> sortered by <span className="highlight">{ this.state.sort }</span> in <span className="highlight">{ this.state.order }</span> order
               </div>
             </h1>
           </div>
