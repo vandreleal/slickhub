@@ -121,7 +121,7 @@ class GithubRepositories extends Component {
 
     let repos = this.state.repos.map(function(value, key){
       return (
-        <div>
+        <div key={key}>
           <h2 className="rsg-index">{key + 1}</h2>
           <Github key={key} objRepo={value} />
         </div>

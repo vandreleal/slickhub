@@ -61,6 +61,7 @@ $color-github: #24292e;
     margin: 30px auto;
     color: lighten($color-text, 70%);
     text-align: center;
+    line-height: 140%;
   }
 }
 @media only screen and (min-width: 568px) {
@@ -82,7 +83,7 @@ $color-github: #24292e;
       display: flex;
       align-items: flex-end;
       justify-content: center;
-      margin: 20px 40px 0;
+      margin: 24px 40px 0;
 
       &--icon {
         display: flex;
@@ -109,7 +110,7 @@ $color-github: #24292e;
 
     &-header {
       &--description {
-        margin: 40px;
+        margin: 48px 40px;
 
         .headline {
           font-size: 24px;
@@ -134,7 +135,7 @@ $color-github: #24292e;
     }
 
     &-footer {
-      margin: 60px auto 40px;
+      margin: 40px auto;
     }
   }
 }

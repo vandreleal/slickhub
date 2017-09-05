@@ -1,8 +1,8 @@
 {
-  "name": "github-trending-explorer",
+  "name": "github-explorer",
   "version": "0.1.0",
-  "description": "React application to explore github trending repositories",
-  "homepage": "http://vandreleal.github.io/github-trending-explorer",
+  "description": "React application to explore github repositories",
+  "homepage": "http://vandreleal.github.io/github-explorer",
   "private": true,
   "author": "Vandre Leal <vandre.leal.candido@gmail.com> (http://vandreleal.github.io)",
   "dependencies": {
