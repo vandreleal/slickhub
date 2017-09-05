@@ -158,8 +158,12 @@ class GithubRepositories extends Component {
         {
           breakpoint: 660,
           settings: {
-            slidesToScroll: 1
+            slidesToScroll: 1,
           }
+        },
+        {
+          breakpoint: 568,
+          settings: "unslick"
         }
       ]
     };
