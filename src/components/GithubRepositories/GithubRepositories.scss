@@ -1,8 +1,24 @@
 $slick-btn-size: 32px;
 $color-github: #24292e;
 
-.is-loading {
-  display: none;
+.is {
+  &-visible {
+    visibility: visible !important;
+  }
+
+  &-loading {
+    display: block !important;
+  }
+}
+
+.not {
+  &-visible {
+    visibility: hidden !important;
+  }
+
+  &-loading {
+    display: none !important;
+  }
 }
 
 .slick {
@@ -70,6 +86,9 @@ $color-github: #24292e;
   }
 }
 @media only screen and (min-width: 568px) {
+  .refresh {
+    transform: translate(10040px, 10020px) !important;
+  }
   .slick {
     &-github {
       margin: 0 32px;

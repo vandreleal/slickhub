@@ -1,10 +1,19 @@
 import React, { Component } from 'react';
+import RefreshIndicator from 'material-ui/RefreshIndicator';
 import Slider from 'react-slick';
 import { Github } from 'react-social-github';
 
 import "../../../node_modules/slick-carousel/slick/slick.css";
 import "../../../node_modules/slick-carousel/slick/slick-theme.css";
 import './GithubRepositories.css';
+
+const style = {
+  refresh: {
+    display: 'inline-block',
+    position: 'relative',
+  },
+};
+
 
 class GithubRepositories extends Component {
 
@@ -92,6 +101,10 @@ class GithubRepositories extends Component {
   }
 
   componentWillReceiveProps(props) {
+    this.setState({
+      isLoading: true
+    });
+
     let query = typeof props.query === 'string' ? props.query + '+' : this.config.query;
     let criteria = typeof props.criteria === 'string' ? props.criteria : this.config.criteria;
     let sort = typeof props.sort === 'string' ? props.sort : this.config.sort;
@@ -107,11 +120,15 @@ class GithubRepositories extends Component {
 
         if(!json.message) {
           this.setState({
+            isLoading: false,
             repos: json.items || {}
           });
         }
 
       }).catch(ex => {
+        this.setState({
+          isLoading: false
+        });
         throw ex;
       });
   }
@@ -129,8 +146,8 @@ class GithubRepositories extends Component {
     });
 
     let settings = {
-      arrows: false,
-      dots: true,
+      arrows: true,
+      dots: false,
       infinite: true,
       initialSlide: 1,
       speed: 1000,
@@ -154,16 +171,12 @@ class GithubRepositories extends Component {
         {
           breakpoint: 925,
           settings: {
-            arrows: true,
-            dots: false,
             slidesToScroll: 2
           }
         },
         {
           breakpoint: 660,
           settings: {
-            arrows: true,
-            dots: false,
             slidesToScroll: 1,
           }
         },
@@ -174,10 +187,31 @@ class GithubRepositories extends Component {
       ]
     };
 
+    let sliderClasses = "";
+    let refreshClasses = "";
+
+    if (this.state.isLoading) {
+      sliderClasses = "slick-github not-visible";
+      refreshClasses = "refresh is-loading";
+    } else {
+      sliderClasses = "slick-github is-visible";
+      refreshClasses = "refresh not-loading";
+    }
+
     return (
-      <Slider {...settings} className="slick-github">
-          { repos }
-      </Slider>
+      <div>
+        <RefreshIndicator
+          size={72}
+          left={24}
+          top={0}
+          status="loading"
+          style={style.refresh}
+          className={refreshClasses}
+        />
+        <Slider {...settings} className={sliderClasses}>
+            { repos }
+        </Slider>
+      </div>
     );
   }
 }

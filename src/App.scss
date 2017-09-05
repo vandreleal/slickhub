@@ -57,9 +57,12 @@ $color-github: #24292e;
 
   &-footer {
     display: inline-block;
+    box-sizing: border-box;
     width: 100%;
-    margin: 30px auto;
+    padding: 16px;
+    background-color: $color-bg;
     color: lighten($color-text, 70%);
+    border-top: 1px solid $color-border;
     text-align: center;
     line-height: 140%;
   }
@@ -117,6 +120,15 @@ $color-github: #24292e;
         }
       }
     }
+
+    &-footer {
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      background-color: #fff;
+      border: none;
+    }
   }
 }
 @media only screen and (min-width: 768px) {
@@ -132,10 +144,6 @@ $color-github: #24292e;
           font-size: 32px;
         }
       }
-    }
-
-    &-footer {
-      margin: 40px auto;
     }
   }
 }

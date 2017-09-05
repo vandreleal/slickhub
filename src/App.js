@@ -257,7 +257,7 @@ class App extends Component {
 
           <div className="app-footer">
             <div>{this.config.app.name} © {this.config.app.year} <a href={this.config.app.author_url} target="_blank">{this.config.app.author}</a></div>
-            <div>Made with React, Material UI and Github API</div>
+            <div>Made with React, Material-UI, Slick and Github API</div>
           </div>
 
         </div>
