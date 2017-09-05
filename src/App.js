@@ -225,7 +225,7 @@ class App extends Component {
 
             <h1 className="pure-g app-header--description">
               <div className="pure-u pure-u-lg-3-5 headline">
-                These are the repositories that were { this.state.criteria } { this.state.interval.replace('_', ' ') } sortered by { this.state.sort } in { this.state.order } order
+                These are the repositories that were <span className="highlight">{ this.state.criteria }</span> <span className="highlight">{ this.state.interval.replace('_', ' ') }</span> sortered by <span className="highlight">{ this.state.sort }</span> in <span className="highlight">{ this.state.order }</span> order
               </div>
             </h1>
           </div>
@@ -236,17 +236,9 @@ class App extends Component {
 
           <div className="app-footer">
             <div>{this.config.app.name} © {this.config.app.year}</div>
-            <div>Crafted by <a href={this.config.app.author_url}>{this.config.app.author}</a></div>
+            <div>Crafted by <a href={this.config.app.author_url} target="_blank">{this.config.app.author}</a></div>
           </div>
 
-          {/* }<Github
-            fab={true}
-            repo="github-trending-repositories"
-            user="vandreleal"
-            tooltipOnHover={true}
-            type="button"
-          >
-          </Github> */}
         </div>
       </MuiThemeProvider>
     );

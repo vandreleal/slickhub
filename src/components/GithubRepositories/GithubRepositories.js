@@ -131,11 +131,37 @@ class GithubRepositories extends Component {
 
     let settings = {
       arrows: true,
-      infinite: false,
+      infinite: true,
+      initialSlide: 1,
       speed: 300,
       variableWidth: true,
-      slidesToShow: 1,
-      slidesToScroll: 1
+      slidesToScroll: 5,
+      responsive: [
+        {
+          breakpoint: 1455,
+          settings: {
+            slidesToScroll: 4
+          }
+        },
+        {
+          breakpoint: 1190,
+          settings: {
+            slidesToScroll: 3
+          }
+        },
+        {
+          breakpoint: 925,
+          settings: {
+            slidesToScroll: 2
+          }
+        },
+        {
+          breakpoint: 660,
+          settings: {
+            slidesToScroll: 1
+          }
+        }
+      ]
     };
 
     return (

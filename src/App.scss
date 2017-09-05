@@ -8,6 +8,7 @@ $color-text: #000;
   &-bar {
     h1 {
       text-align: center;
+      text-transform: uppercase;
     }
 
     svg {
@@ -42,6 +43,12 @@ $color-text: #000;
         font-weight: 300;
         line-height: 140%;
         word-spacing: 0.1em;
+      }
+
+      .highlight {
+        font-weight: 700;
+        background-color: #FFECB3;
+        padding: 0 8px;
       }
     }
   }
