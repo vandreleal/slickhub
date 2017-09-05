@@ -2,17 +2,19 @@ $slick-btn-size: 32px;
 
 .slick {
   &-github {
-    margin: 0 32px;
+    margin: 0 48px;
 
     .rsg-title {
-      margin: 8px auto;
+      margin: 0 auto;
       text-align: center;
-      color: #aaa;
+      font-size: 20px;
+      font-weight: 300;
+      color: #999;
     }
 
     .rsg-github {
       width: 250px;
-      margin: 8px;
+      margin: 16px;
       vertical-align: top;
 
       &:first-of-type {
@@ -63,16 +65,14 @@ $slick-btn-size: 32px;
     right: -$slick-btn-size;
   }
 }
-@media only screen and (min-width: 1024px) {
+@media only screen and (min-width: 568px) {
   .slick {
     &-github {
-      .rsg-github {
-        margin-right: 16px;
-        margin-left: 16px;
+      margin: 0 32px;
 
-        &:first-of-type {
-          margin-left: 0;
-        }
+      .rsg-title {
+        margin-top: 8px;
+        margin-bottom: 8px;
       }
     }
 

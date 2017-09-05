@@ -220,8 +220,8 @@ class App extends Component {
             </div>
 
             <h1 className="pure-g app-header--description">
-              <div className="pure-u pure-u-lg-3-4 headline">
-                You are viewing repositories that were { this.state.criteria } { this.state.interval } sortered by { this.state.sort } in { this.state.order } order
+              <div className="pure-u pure-u-lg-3-5 headline">
+                You are viewing repositories that were { this.state.criteria } { this.state.interval } sortered by { this.state.sort } in { this.state.order } order.
               </div>
             </h1>
           </div>

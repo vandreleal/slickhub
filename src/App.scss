@@ -3,60 +3,60 @@ $color-border: #ddd;
 $color-text: #000;
 
 .app {
+  min-width: 360px;
+
   &-bar {
+    h1 {
+      text-align: center;
+    }
+
     svg {
       width: 24px;
       height: 24px;
     }
   }
 
-  &-filter,
-  &-header {
+  &-filter {
     display: none;
   }
 
+  &-header {
+    display: inline-block;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0 0 20vh;
+    background-color: $color-bg;
+    border: 1px solid $color-border;
+    border-top: none;
+    font-weight: 900;
+    color: $color-text;
+
+    &--description {
+      margin: 24px;
+
+      .headline {
+        color: lighten($color-text, 20%);
+        font-family: 'Roboto', sans-serif;
+        font-size: 20px;
+        font-weight: 300;
+        line-height: 140%;
+        word-spacing: 0.2em;
+      }
+    }
+  }
+
   &-content {
-    margin: 16px;
+    margin: -20vh 0 0;
   }
 }
 @media only screen and (min-width: 568px) {
   .app {
     margin: 0 auto;
 
-    &-bar {
-      h1 {
-        text-align: center;
-      }
-    }
-
+    &-content,
     &-header {
-      display: inline-block;
-      box-sizing: border-box;
-      width: 100%;
-      padding: 0 0 20vh;
-      background-color: $color-bg;
-      border: 1px solid $color-border;
-      border-top: none;
-      font-weight: 900;
-      color: $color-text;
-
-      &--description {
-        margin: 7.5vh 40px;
-
-        .headline {
-          color: lighten($color-text, 20%);
-          font-family: 'Roboto', sans-serif;
-          font-size: 3.5vh;
-          font-weight: 400;
-          line-height: 140%;
-          word-spacing: .2em;
-          text-transform: uppercase;
-        }
-      }
-    }
-
-    &-content {
-      margin: -20vh 0 0;
+      padding-right: 32px;
+      padding-left: 32px;
     }
   }
 }
@@ -72,7 +72,7 @@ $color-text: #000;
       display: flex;
       align-items: flex-end;
       justify-content: center;
-      margin: 16px 40px;
+      margin: 30px 40px 0;
 
       &--icon {
         margin-bottom: 12px;
@@ -87,19 +87,23 @@ $color-text: #000;
         width: 90% !important;
       }
     }
-  }
-}
-@media only screen and (min-width: 1024px) {
-  .app {
-    &-content,
+
     &-header {
-      padding-right: 32px;
-      padding-left: 32px;
+      &--description {
+        margin: 40px;
+
+        .headline {
+          font-size: 36px;
+        }
+      }
     }
   }
 }
-@media only screen and (min-width: 1400px) {
+@media only screen and (min-width: 1024px) {
+  .app {}
+}
+@media only screen and (min-width: 1440px) {
   .app {
-    max-width: 1400px;
+    max-width: 1440px;
   }
 }
