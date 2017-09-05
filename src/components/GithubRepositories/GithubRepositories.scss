@@ -4,28 +4,38 @@ $slick-btn-size: 32px;
   &-github {
     margin: 0 32px;
 
-    .rsg-github {
-      margin: 8px;
-      vertical-align: top;
+    .rsg-title {
+      margin: 8px auto;
+      text-align: center;
+      color: #aaa;
     }
 
-    @media only screen and (max-width: 480px) {
-      .rsg-github {
-        width: 250px;
+    .rsg-github {
+      width: 250px;
+      margin: 8px;
+      vertical-align: top;
+
+      &:first-of-type {
+        margin-left: 0;
       }
 
-      .rsg-github-wrapper {
-        display: block;
-        min-width: 0;
+      .rsg-avatar {
+        margin: 0 auto;
+      }
+    }
+
+    .rsg-github-wrapper {
+      display: block;
+      min-width: 0;
+    }
+
+    .rsg-counters {
+      .rsg-item {
+        zoom: 0.8;
       }
 
-      .rsg-counters {
-        .rsg-item {
-          zoom: 0.8;
-        }
-        .rsg-item:not(:last-child) {
-          border: none;
-        }
+      .rsg-item:not(:last-child) {
+        border: none;
       }
     }
   }
@@ -51,5 +61,27 @@ $slick-btn-size: 32px;
 
   &-next {
     right: -$slick-btn-size;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .slick {
+    &-github {
+      .rsg-github {
+        margin-right: 16px;
+        margin-left: 16px;
+
+        &:first-of-type {
+          margin-left: 0;
+        }
+      }
+    }
+
+    &-prev {
+      left: -$slick-btn-size * 1.5;
+    }
+
+    &-next {
+      right: -$slick-btn-size * 1.5;
+    }
   }
 }

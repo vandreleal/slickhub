@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import AppBar from 'material-ui/AppBar';
@@ -6,17 +7,19 @@ import MenuItem from 'material-ui/MenuItem';
 import IconButton from 'material-ui/IconButton';
 import IconMenu from 'material-ui/IconMenu';
 // import Divider from 'material-ui/Divider';
-// import SelectField from 'material-ui/SelectField';
+import SelectField from 'material-ui/SelectField';
+import RaisedButton from 'material-ui/RaisedButton';
 import ArrowDropRight from 'material-ui/svg-icons/navigation-arrow-drop-right';
 import { SettingsIcon } from 'react-octicons';
+// import { Github } from 'react-social-github';
 
 import {
   indigo700,
   indigo500,
   indigo300,
-  lightBlue300,
-  lightBlue200,
-  lightBlue100,
+  blue500,
+  blue300,
+  blue100,
   darkBlack,
   fullBlack
 } from 'material-ui/styles/colors';
@@ -29,9 +32,9 @@ const muiTheme = getMuiTheme({
     primary1Color: indigo700,
     primary2Color: indigo500,
     primary3Color: indigo300,
-    accent1Color: lightBlue300,
-    accent2Color: lightBlue200,
-    accent3Color: lightBlue100,
+    accent1Color: blue500,
+    accent2Color: blue300,
+    accent3Color: blue100,
     textColor: darkBlack,
     shadowColor: fullBlack
   }
@@ -59,6 +62,10 @@ const interval = [
   { value: 'this_month', label: 'This Month' }
 ];
 
+const style = {
+  margin: 12
+};
+
 class App extends Component {
 
   constructor(props) {
@@ -85,13 +92,14 @@ class App extends Component {
 
     return (
       <MuiThemeProvider muiTheme={muiTheme}>
-        <div className="App">
+        <div className="app">
           <AppBar
             className="app-bar"
             showMenuIconButton={false}
-            title="Gitty"
+            title="Github Explorer"
             iconElementRight={
               <IconMenu
+                className="app-bar--options"
                 iconButtonElement={<IconButton><SettingsIcon /></IconButton>}
                 anchorOrigin={{horizontal: 'left', vertical: 'top'}}
                 targetOrigin={{horizontal: 'left', vertical: 'top'}}
@@ -142,72 +150,94 @@ class App extends Component {
           />
 
           <div className="app-header">
-            <h1 className="app-header--description">
-              You are viewing repositories that were { this.state.criteria } { this.state.interval } sortered by { this.state.sort } in { this.state.order } order
+            <div className="pure-g app-filter">
+              <div className="pure-u-2-24 app-filter--icon">
+                <SettingsIcon />
+              </div>
+              <div className="pure-u-5-24">
+                  <SelectField
+                    className="app-filter--option"
+                    floatingLabelText="Criteria"
+                    value={this.state.criteria}
+                    onChange={this.handleSelectChange.bind(this, 'criteria')}
+                  >
+                  {
+                    criteria.map((obj, index) => {
+                        return <MenuItem value={obj.value} primaryText={obj.label} key={index} />;
+                    })
+                  }
+                  </SelectField>
+              </div>
+
+              <div className="pure-u-5-24">
+                  <SelectField
+                    className="app-filter--option"
+                    floatingLabelText="Sort"
+                    value={this.state.sort}
+                    onChange={this.handleSelectChange.bind(this, 'sort')}
+                  >
+                  {
+                    sort.map((obj, index) => {
+                        return <MenuItem value={obj.value} primaryText={obj.label} key={index} />;
+                    })
+                  }
+                  </SelectField>
+              </div>
+
+              <div className="pure-u-5-24">
+                  <SelectField
+                    className="app-filter--option"
+                    floatingLabelText="Order"
+                    value={this.state.order}
+                    onChange={this.handleSelectChange.bind(this, 'order')}
+                  >
+                  {
+                    order.map((obj, index) => {
+                        return <MenuItem value={obj.value} primaryText={obj.label} key={index} />;
+                    })
+                  }
+                  </SelectField>
+              </div>
+
+              <div className="pure-u-5-24">
+                  <SelectField
+                    className="app-filter--option"
+                    floatingLabelText="Interval"
+                    value={this.state.interval}
+                    onChange={this.handleSelectChange.bind(this, 'interval')}
+                  >
+                  {
+                    interval.map((obj, index) => {
+                        return <MenuItem value={obj.value} primaryText={obj.label} key={index} />;
+                    })
+                  }
+                  </SelectField>
+              </div>
+
+              <div className="pure-u-2-24">
+                <RaisedButton label="Update" primary={true} style={style} />
+              </div>
+            </div>
+
+            <h1 className="pure-g app-header--description">
+              <div className="pure-u pure-u-lg-3-4 headline">
+                You are viewing repositories that were { this.state.criteria } { this.state.interval } sortered by { this.state.sort } in { this.state.order } order
+              </div>
             </h1>
           </div>
 
-          {/* <div className="app-header">
-            <div>
-                <SelectField
-                  floatingLabelText="Criteria"
-                  value={this.state.criteria}
-                  onChange={this.handleChange.bind(this, 'criteria')}
-                >
-                {
-                  criteria.map((obj, index) => {
-                      return <MenuItem value={obj.value} primaryText={obj.label} key={index} />;
-                  })
-                }
-                </SelectField>
-            </div>
-
-            <div>
-                <SelectField
-                  floatingLabelText="Sort"
-                  value={this.state.sort}
-                  onChange={this.handleChange.bind(this, 'sort')}
-                >
-                {
-                  sort.map((obj, index) => {
-                      return <MenuItem value={obj.value} primaryText={obj.label} key={index} />;
-                  })
-                }
-                </SelectField>
-            </div>
-
-            <div>
-                <SelectField
-                  floatingLabelText="Order"
-                  value={this.state.order}
-                  onChange={this.handleChange.bind(this, 'order')}
-                >
-                {
-                  order.map((obj, index) => {
-                      return <MenuItem value={obj.value} primaryText={obj.label} key={index} />;
-                  })
-                }
-                </SelectField>
-            </div>
-
-            <div>
-                <SelectField
-                  floatingLabelText="Interval"
-                  value={this.state.interval}
-                  onChange={this.handleChange.bind(this, 'interval')}
-                >
-                {
-                  interval.map((obj, index) => {
-                      return <MenuItem value={obj.value} primaryText={obj.label} key={index} />;
-                  })
-                }
-                </SelectField>
-            </div>
-          </div> */}
-
-          <div className="app-preview">
+          <div className="app-content">
             { repos }
           </div>
+
+          {/* }<Github
+            fab={true}
+            repo="github-trending-repositories"
+            user="vandreleal"
+            tooltipOnHover={true}
+            type="button"
+          >
+          </Github> */}
         </div>
       </MuiThemeProvider>
     );

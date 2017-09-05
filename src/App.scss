@@ -1,4 +1,6 @@
-// @import url('https://fonts.googleapis.com/css?family=Muli:400,700,900');
+$color-bg: #f4f6f8;
+$color-border: #ddd;
+$color-text: #000;
 
 .app {
   &-bar {
@@ -6,53 +8,98 @@
       width: 24px;
       height: 24px;
     }
-
-    h1 {
-      text-align: center;
-    }
   }
 
+  &-filter,
   &-header {
-    width: 100%;
-    display: inline-block;
-    box-sizing: border-box;
-    padding: 32px 16px;
-    // background-color: #8BC6EC;
-    // background-image: linear-gradient(315deg, #8BC6EC 0%, #9599E2 100%);
-    // color: #fff;
-    font-weight: 900;
-    text-align: center;
-    color: #333;
-
-    &--description {
-      max-width: 600px;
-      margin: 0 auto;
-      font-size: 2.5vh;
-    }
+    display: none;
   }
 
-  &-preview {
-    margin: 0 16px;
+  &-content {
+    margin: 16px;
   }
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (min-width: 568px) {
   .app {
+    margin: 0 auto;
+
+    &-bar {
+      h1 {
+        text-align: center;
+      }
+    }
+
     &-header {
-      padding: 16px;
+      display: inline-block;
+      box-sizing: border-box;
+      width: 100%;
+      padding: 0 0 20vh;
+      background-color: $color-bg;
+      border: 1px solid $color-border;
+      border-top: none;
+      font-weight: 900;
+      color: $color-text;
 
       &--description {
-        display: none;
+        margin: 7.5vh 40px;
+
+        .headline {
+          color: lighten($color-text, 20%);
+          font-family: 'Roboto', sans-serif;
+          font-size: 3.5vh;
+          font-weight: 400;
+          line-height: 140%;
+          word-spacing: .2em;
+          text-transform: uppercase;
+        }
+      }
+    }
+
+    &-content {
+      margin: -20vh 0 0;
+    }
+  }
+}
+@media only screen and (min-width: 768px) {
+  .app {
+    &-bar {
+      &--options {
+        display: none !important;
+      }
+    }
+
+    &-filter {
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      margin: 16px 40px;
+
+      &--icon {
+        margin-bottom: 12px;
+
+        svg {
+          width: 32px;
+          height: 32px;
+        }
+      }
+
+      &--option {
+        width: 90% !important;
       }
     }
   }
 }
-
-// @media only screen and (min-width: 481px) {
-//   .app {
-//     &-bar {
-//       h1 {
-//         text-align: center;
-//       }
-//     }
-//   }
-// }
+@media only screen and (min-width: 1024px) {
+  .app {
+    &-content,
+    &-header {
+      padding-right: 32px;
+      padding-left: 32px;
+    }
+  }
+}
+@media only screen and (min-width: 1400px) {
+  .app {
+    max-width: 1400px;
+  }
+}
