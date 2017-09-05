@@ -2,26 +2,6 @@ $slick-btn-size: 32px;
 $color-github: #24292e;
 $color-error: #EF5350;
 
-.is {
-  &-visible {
-    visibility: visible !important;
-  }
-
-  &-loading {
-    display: block !important;
-  }
-}
-
-.not {
-  &-visible {
-    visibility: hidden !important;
-  }
-
-  &-loading {
-    display: none !important;
-  }
-}
-
 .message {
   display: inline-block;
   box-sizing: border-box;

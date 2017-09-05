@@ -12,6 +12,7 @@
     "npm-run-all": "^4.0.2",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
+    "react-ga": "^2.2.0",
     "react-octicons": "^0.2.0",
     "react-slick": "^0.15.0",
     "react-social-github": "^2.1.0"

@@ -9,6 +9,7 @@ import IconMenu from 'material-ui/IconMenu';
 import SelectField from 'material-ui/SelectField';
 import ArrowDropRight from 'material-ui/svg-icons/navigation-arrow-drop-right';
 import { SettingsIcon } from 'react-octicons';
+import ReactGA from 'react-ga';
 
 import {
   grey900,
@@ -87,6 +88,8 @@ class App extends Component {
       interval: 'today',
       limit: 25
     };
+
+    ReactGA.initialize('UA-105985893-1');
   }
 
   handleChange(name, value) {
@@ -246,7 +249,7 @@ class App extends Component {
 
             <h1 className="pure-g app-header--description">
               <div className="pure-u pure-u-lg-3-4 pure-u-xl-1-2 headline">
-                These are the <span className="highlight">{ this.state.limit }</span> repositories <span className="highlight">{ this.state.criteria }</span> <span className="highlight">{ this.state.interval.replace('_', ' ') }</span> sortered by <span className="highlight">{ this.state.sort }</span> in <span className="highlight">{ this.state.order }</span> order
+                These are the <span className="highlight">{ this.state.limit }</span> repositories <span className="highlight">{ this.state.criteria }</span> <span className="highlight">{ this.state.interval.replace('_', ' ') }</span> sorted by <span className="highlight">{ this.state.sort }</span> in <span className="highlight">{ this.state.order }</span> order
               </div>
             </h1>
           </div>
