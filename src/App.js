@@ -6,12 +6,10 @@ import AppBar from 'material-ui/AppBar';
 import MenuItem from 'material-ui/MenuItem';
 import IconButton from 'material-ui/IconButton';
 import IconMenu from 'material-ui/IconMenu';
-// import Divider from 'material-ui/Divider';
 import SelectField from 'material-ui/SelectField';
-import RaisedButton from 'material-ui/RaisedButton';
 import ArrowDropRight from 'material-ui/svg-icons/navigation-arrow-drop-right';
 import { SettingsIcon } from 'react-octicons';
-import { SearchIcon } from 'react-octicons';
+// import { SearchIcon } from 'react-octicons';
 // import { Github } from 'react-social-github';
 
 import {
@@ -48,8 +46,7 @@ const criteria = [
 
 const sort = [
   { value: 'stars', label: 'Stars' },
-  { value: 'forks', label: 'Forks' },
-  { value: 'updated', label: 'Updated' }
+  { value: 'forks', label: 'Forks' }
 ];
 
 const order = [
@@ -63,41 +60,19 @@ const interval = [
   { value: 'this_month', label: 'This Month' }
 ];
 
-const styles = {
-  margin: 12,
-  smallIcon: {
-    width: 36,
-    height: 36,
-  },
-  mediumIcon: {
-    width: 48,
-    height: 48,
-  },
-  largeIcon: {
-    width: 60,
-    height: 60,
-  },
-  small: {
-    width: 72,
-    height: 72,
-    padding: 16,
-  },
-  medium: {
-    width: 96,
-    height: 96,
-    padding: 24,
-  },
-  large: {
-    width: 120,
-    height: 120,
-    padding: 30,
-  },
-};
-
 class App extends Component {
 
   constructor(props) {
     super(props);
+
+    this.config = {
+      app: {
+        name: 'Github Explorer',
+        year: new Date().getFullYear(),
+        author: 'Vandré Leal',
+        author_url: 'https://vandreleal.github.io'
+      }
+    }
 
     this.state = {
       criteria: 'pushed',
@@ -128,7 +103,7 @@ class App extends Component {
           <AppBar
             className="app-bar"
             showMenuIconButton={false}
-            title="Github Explorer"
+            title={this.config.app.name}
             iconElementRight={
               <IconMenu
                 className="app-bar--options"
@@ -183,10 +158,11 @@ class App extends Component {
 
           <div className="app-header">
             <div className="pure-g app-filter">
-              <div className="pure-u-2-24 app-filter--icon">
+              <div className="pure-u-1 pure-u-lg-4-24 app-filter--icon">
                 <SettingsIcon />
+                <span>Filters</span>
               </div>
-              <div className="pure-u-5-24">
+              <div className="pure-u-1-2 pure-u-lg-5-24">
                   <SelectField
                     className="app-filter--option"
                     floatingLabelText="Criteria"
@@ -201,7 +177,7 @@ class App extends Component {
                   </SelectField>
               </div>
 
-              <div className="pure-u-5-24">
+              <div className="pure-u-1-2 pure-u-lg-5-24">
                   <SelectField
                     className="app-filter--option"
                     floatingLabelText="Sort"
@@ -216,7 +192,7 @@ class App extends Component {
                   </SelectField>
               </div>
 
-              <div className="pure-u-5-24">
+              <div className="pure-u-1-2 pure-u-lg-5-24">
                   <SelectField
                     className="app-filter--option"
                     floatingLabelText="Order"
@@ -231,7 +207,7 @@ class App extends Component {
                   </SelectField>
               </div>
 
-              <div className="pure-u-5-24">
+              <div className="pure-u-1-2 pure-u-lg-5-24">
                   <SelectField
                     className="app-filter--option"
                     floatingLabelText="Interval"
@@ -245,28 +221,22 @@ class App extends Component {
                   }
                   </SelectField>
               </div>
-
-              <div className="pure-u-2-24">
-              {/*  <RaisedButton label="Update" primary={true} style={styles} /> */}
-                <IconButton
-                  iconStyle={styles.smallIcon}
-                  style={styles.small}
-                  onClick={this.update.bind(this)}
-                >
-                  <SearchIcon />
-                </IconButton>
-              </div>
             </div>
 
             <h1 className="pure-g app-header--description">
               <div className="pure-u pure-u-lg-3-5 headline">
-                These are the repositories that were { this.state.criteria } { this.state.interval.replace('_', ' ') } sortered by { this.state.sort } in { this.state.order } order.
+                These are the repositories that were { this.state.criteria } { this.state.interval.replace('_', ' ') } sortered by { this.state.sort } in { this.state.order } order
               </div>
             </h1>
           </div>
 
           <div className="app-content">
             { repos }
+          </div>
+
+          <div className="app-footer">
+            <div>{this.config.app.name} © {this.config.app.year}</div>
+            <div>Crafted by <a href={this.config.app.author_url}>{this.config.app.author}</a></div>
           </div>
 
           {/* }<Github

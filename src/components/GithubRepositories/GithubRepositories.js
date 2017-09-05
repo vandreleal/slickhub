@@ -134,18 +134,8 @@ class GithubRepositories extends Component {
       infinite: false,
       speed: 300,
       variableWidth: true,
-      responsive: [
-        {
-          breakpoint: 768,
-          settings: {
-          }
-        },
-        {
-          breakpoint: 480,
-          settings: {
-          }
-        }
-      ]
+      slidesToShow: 1,
+      slidesToScroll: 1
     };
 
     return (
