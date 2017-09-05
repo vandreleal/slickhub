@@ -11,6 +11,7 @@ import SelectField from 'material-ui/SelectField';
 import RaisedButton from 'material-ui/RaisedButton';
 import ArrowDropRight from 'material-ui/svg-icons/navigation-arrow-drop-right';
 import { SettingsIcon } from 'react-octicons';
+import { SearchIcon } from 'react-octicons';
 // import { Github } from 'react-social-github';
 
 import {
@@ -62,8 +63,35 @@ const interval = [
   { value: 'this_month', label: 'This Month' }
 ];
 
-const style = {
-  margin: 12
+const styles = {
+  margin: 12,
+  smallIcon: {
+    width: 36,
+    height: 36,
+  },
+  mediumIcon: {
+    width: 48,
+    height: 48,
+  },
+  largeIcon: {
+    width: 60,
+    height: 60,
+  },
+  small: {
+    width: 72,
+    height: 72,
+    padding: 16,
+  },
+  medium: {
+    width: 96,
+    height: 96,
+    padding: 24,
+  },
+  large: {
+    width: 120,
+    height: 120,
+    padding: 30,
+  },
 };
 
 class App extends Component {
@@ -86,6 +114,10 @@ class App extends Component {
   handleSelectChange(name, event, key, value) {
     this.setState({[name]: value});
   };
+
+  update() {
+    this.setState(this.config);
+  }
 
   render() {
     let repos = <GithubRepositories { ...this.state }> </GithubRepositories>;
@@ -215,13 +247,20 @@ class App extends Component {
               </div>
 
               <div className="pure-u-2-24">
-                <RaisedButton label="Update" primary={true} style={style} />
+              {/*  <RaisedButton label="Update" primary={true} style={styles} /> */}
+                <IconButton
+                  iconStyle={styles.smallIcon}
+                  style={styles.small}
+                  onClick={this.update.bind(this)}
+                >
+                  <SearchIcon />
+                </IconButton>
               </div>
             </div>
 
             <h1 className="pure-g app-header--description">
               <div className="pure-u pure-u-lg-3-5 headline">
-                You are viewing repositories that were { this.state.criteria } { this.state.interval } sortered by { this.state.sort } in { this.state.order } order.
+                These are the repositories that were { this.state.criteria } { this.state.interval.replace('_', ' ') } sortered by { this.state.sort } in { this.state.order } order.
               </div>
             </h1>
           </div>
