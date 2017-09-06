@@ -1,9 +1,4 @@
-$color-bg: #f4f6f8;
-$color-border: #ddd;
-$color-text: #000;
-$color-highlight: #ffecB3;
-
-$header-offset: 180px;
+@import "shared/variables";
 
 .app {
   min-width: 360px;
@@ -23,15 +18,14 @@ $header-offset: 180px;
     display: inline-block;
     box-sizing: border-box;
     width: 100%;
-    padding: 64px 0 $header-offset;
+    padding: $sp-ul 0 $header-offset;
     background-color: $color-bg;
     border: 1px solid $color-border;
     border-top: none;
-    font-weight: 900;
     color: $color-text;
 
     &--description {
-      margin: 16px 24px;
+      margin: $sp-md $sp-lg;
 
       .headline {
         color: lighten($color-text, 30%);
@@ -43,7 +37,7 @@ $header-offset: 180px;
       }
 
       .highlight {
-        padding: 0 4px;
+        padding: 0 $sp-xs;
         font-weight: 700;
         background-color: $color-highlight;
       }
@@ -51,14 +45,14 @@ $header-offset: 180px;
   }
 
   &-content {
-    margin: -$header-offset 0 32px;
+    margin: -$header-offset 0 $sp-md;
   }
 
   &-footer {
     display: inline-block;
     box-sizing: border-box;
     width: 100%;
-    padding: 16px 32px;
+    padding: $sp-md $sp-xl;
     background-color: $color-bg;
     color: lighten($color-text, 70%);
     border-top: 1px solid $color-border;
@@ -66,7 +60,7 @@ $header-offset: 180px;
     line-height: 140%;
   }
 }
-@media screen and (min-width: 568px) {
+@media screen and (min-width: $mq-sm) {
   .app {
     margin: 0 auto;
 
@@ -86,7 +80,7 @@ $header-offset: 180px;
       display: flex;
       align-items: flex-end;
       justify-content: center;
-      margin: 24px 40px 0;
+      margin: $sp-lg $sp-xl 0;
 
       &--icon {
         display: flex;
@@ -107,14 +101,15 @@ $header-offset: 180px;
 
     &-content,
     &-header {
-      padding-right: 32px;
-      padding-left: 32px;
+      padding-right: $sp-xl;
+      padding-left: $sp-xl;
     }
 
     &-header {
       padding-top: 0;
+
       &--description {
-        margin: 48px 40px;
+        margin: $sp-xl;
 
         .headline {
           font-size: 24px;
@@ -132,14 +127,14 @@ $header-offset: 180px;
     }
   }
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: $mq-md) {
   .app {}
 }
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: $mq-lg) {
   .app {
     &-header {
       &--description {
-        margin-right: 0;
+        margin: ($sp-xl + $sp-md) $sp-xl;
 
         .headline {
           font-size: 32px;
@@ -148,8 +143,8 @@ $header-offset: 180px;
     }
   }
 }
-@media screen and (min-width: 1460px) {
+@media screen and (min-width: $mq-ul) {
   .app {
-    max-width: 1460px;
+    max-width: $mq-ul;
   }
 }

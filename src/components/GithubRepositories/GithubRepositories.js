@@ -215,8 +215,8 @@ class GithubRepositories extends Component {
       <div>
         <RefreshIndicator
           size={72}
-          left={24}
-          top={0}
+          left={32}
+          top={24}
           status="loading"
           style={style.refresh}
           className={refreshClasses}

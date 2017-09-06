@@ -1,11 +1,9 @@
-$slick-btn-size: 32px;
-$color-github: #24292e;
-$color-error: #EF5350;
+@import "shared/variables";
 
 .message {
   display: inline-block;
   box-sizing: border-box;
-  margin: 16px 24px 0;
+  margin: $sp-md $sp-lg 0;
   color: $color-error;
   font-family: 'Roboto', sans-serif;
   font-size: 20px;
@@ -16,29 +14,29 @@ $color-error: #EF5350;
 
 .slick {
   &-github {
-    margin: 0 24px;
+    margin: 0 $sp-lg;
 
     .rsg-index {
       position: absolute;
-      left: 8px;
+      left: $sp-sm;
       width: 18px;
-      margin-top: 20px;
-      padding: 8px;
+      margin-top: $sp-lg;
+      padding: $sp-sm;
       font-size: 16px;
       font-weight: 300;
       text-align: center;
-      color: #ddd;
-      background-color: lighten($color-github, 20%);
+      color: lighten($color-github, 75%);
+      background-color: lighten($color-github, 25%);
       border-radius: 50%;
     }
 
     .rsg-github {
       width: 100%;
-      margin: 8px 16px 16px 0;
+      margin: $sp-sm $sp-md $sp-md 0;
 
       .rsg-avatar {
         margin: 0 auto;
-        border-radius: 6px;
+        border-radius: 4px;
       }
     }
 
@@ -56,7 +54,7 @@ $color-error: #EF5350;
   }
 
   &-list {
-    padding: 0 8px;
+    padding: 0 $sp-sm;
   }
 
   &-next,
@@ -78,27 +76,25 @@ $color-error: #EF5350;
     right: -$slick-btn-size;
   }
 }
-@media screen and (min-width: 568px) {
-  .refresh {
-    transform: translate(10040px, 10020px) !important;
-  }
+@media screen and (min-width: $mq-sm) {
   .message {
-    margin-left: 40px;
-    font-size: 24px;
+    margin-left: $sp-xl;
+    font-size: $sp-lg;
   }
+
   .slick {
     &-github {
-      margin: 0 32px;
+      margin: 0 $sp-xl;
 
       .rsg-index {
         position: relative;
-        left: 10px;
-        top: 25px;
-        margin: -10px 16px 0 0;
+        left: $sp-sm;
+        top: $sp-lg;
+        margin: -$sp-sm $sp-md 0 0;
       }
 
       .rsg-github {
-        width: 250px;
+        width: $slick-card-width;
       }
     }
 

@@ -1,0 +1,25 @@
+// Media Queries
+$mq-sm: 35.5em;
+$mq-md: 48em;
+$mq-lg: 64em;
+$mq-xl: 80em;
+$mq-ul: 91.25em;
+// Spacing
+$sp-base: 16px;
+$sp-xs: $sp-base / 4;
+$sp-sm: $sp-base / 2;
+$sp-md: $sp-base;
+$sp-lg: $sp-base * 1.5;
+$sp-xl: $sp-base * 2;
+$sp-ul: $sp-base * 4;
+// Colors
+$color-bg: #f4f6f8;
+$color-border: #ddd;
+$color-text: #000;
+$color-highlight: #ffecB3;
+$color-github: #24292e;
+$color-error: #EF5350;
+// Elements
+$header-offset: 180px;
+$slick-btn-size: 32px;
+$slick-card-width: 250px;
