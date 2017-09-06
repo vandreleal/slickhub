@@ -2,7 +2,6 @@ $color-bg: #f4f6f8;
 $color-border: #ddd;
 $color-text: #000;
 $color-highlight: #ffecB3;
-$color-github: #24292e;
 
 .app {
   min-width: 360px;
@@ -50,7 +49,7 @@ $color-github: #24292e;
   }
 
   &-content {
-    margin: -20vh 0 30px;
+    margin: -20vh 0 32px;
   }
 
   &-footer {
@@ -65,7 +64,7 @@ $color-github: #24292e;
     line-height: 140%;
   }
 }
-@media only screen and (min-width: 568px) {
+@media screen and (min-width: 568px) {
   .app {
     margin: 0 auto;
 
@@ -131,10 +130,10 @@ $color-github: #24292e;
     }
   }
 }
-@media only screen and (min-width: 768px) {
+@media screen and (min-width: 768px) {
   .app {}
 }
-@media only screen and (min-width: 1024px) {
+@media screen and (min-width: 1024px) {
   .app {
     &-header {
       &--description {
@@ -147,7 +146,7 @@ $color-github: #24292e;
     }
   }
 }
-@media only screen and (min-width: 1460px) {
+@media screen and (min-width: 1460px) {
   .app {
     max-width: 1460px;
   }

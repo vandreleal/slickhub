@@ -9,7 +9,7 @@ body {
     visibility: visible !important;
   }
 
-  &-loading {
+  &-displayed {
     display: block !important;
   }
 }
@@ -19,7 +19,7 @@ body {
     visibility: hidden !important;
   }
 
-  &-loading {
+  &-displayed {
     display: none !important;
   }
 }

@@ -78,7 +78,7 @@ $color-error: #EF5350;
     right: -$slick-btn-size;
   }
 }
-@media only screen and (min-width: 568px) {
+@media screen and (min-width: 568px) {
   .refresh {
     transform: translate(10040px, 10020px) !important;
   }

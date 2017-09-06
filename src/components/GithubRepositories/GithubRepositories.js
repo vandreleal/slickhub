@@ -197,17 +197,17 @@ class GithubRepositories extends Component {
       messageClasses = "";
 
     if (this.state.hasError) {
-      messageClasses = 'message is-loading';
+      messageClasses = 'message is-displayed';
       sliderClasses = "slick-github not-visible";
-      refreshClasses = "refresh not-loading";
+      refreshClasses = "refresh not-displayed";
     } else {
-      messageClasses = 'message not-loading';
+      messageClasses = 'message not-displayed';
       if (this.state.isLoading) {
         sliderClasses = "slick-github not-visible";
-        refreshClasses = "refresh is-loading";
+        refreshClasses = "refresh is-displayed";
       } else {
         sliderClasses = "slick-github is-visible";
-        refreshClasses = "refresh not-loading";
+        refreshClasses = "refresh not-displayed";
       }
     }
 
