@@ -3,6 +3,8 @@ $color-border: #ddd;
 $color-text: #000;
 $color-highlight: #ffecB3;
 
+$header-offset: 180px;
+
 .app {
   min-width: 360px;
 
@@ -21,7 +23,7 @@ $color-highlight: #ffecB3;
     display: inline-block;
     box-sizing: border-box;
     width: 100%;
-    padding: 64px 0 20vh;
+    padding: 64px 0 $header-offset;
     background-color: $color-bg;
     border: 1px solid $color-border;
     border-top: none;
@@ -49,7 +51,7 @@ $color-highlight: #ffecB3;
   }
 
   &-content {
-    margin: -20vh 0 32px;
+    margin: -$header-offset 0 32px;
   }
 
   &-footer {
