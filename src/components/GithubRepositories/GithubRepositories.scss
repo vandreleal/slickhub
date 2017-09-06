@@ -77,6 +77,10 @@
   }
 }
 @media screen and (min-width: $mq-sm) {
+  .refresh {
+    transform: translate(10032px, 10024px) !important;
+  }
+
   .message {
     margin-left: $sp-xl;
     font-size: $sp-lg;

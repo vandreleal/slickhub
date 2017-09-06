@@ -173,6 +173,16 @@ class App extends Component {
                   ]}
                 />
 
+                <MenuItem
+                  primaryText="Limit"
+                  rightIcon={<ArrowDropRight />}
+                  menuItems={[
+                    limit.map((obj, index) => {
+                        return <MenuItem value={obj.value} primaryText={obj.label} key={index} onClick={this.handleChange.bind(this, 'limit', obj.value)} />;
+                    })
+                  ]}
+                />
+
               </IconMenu>
             }
           />

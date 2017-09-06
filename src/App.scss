@@ -45,17 +45,22 @@
   }
 
   &-content {
-    margin: -$header-offset 0 $sp-md;
+    z-index: 20;
+    margin: -$header-offset 0 ($sp-ul + $sp-xl);
+    background-color: $color-bg-light;
   }
 
   &-footer {
+    z-index: -1;
     display: inline-block;
     box-sizing: border-box;
+    position: fixed;
+    left: 0;
+    bottom: 0;
     width: 100%;
     padding: $sp-md $sp-xl;
-    background-color: $color-bg;
+    background-color: $color-bg-light;
     color: lighten($color-text, 70%);
-    border-top: 1px solid $color-border;
     text-align: center;
     line-height: 140%;
   }
@@ -117,13 +122,8 @@
       }
     }
 
-    &-footer {
-      position: fixed;
-      left: 0;
-      bottom: 0;
-      width: 100%;
-      background-color: #fff;
-      border: none;
+    &-content {
+      margin-bottom: $sp-ul;
     }
   }
 }

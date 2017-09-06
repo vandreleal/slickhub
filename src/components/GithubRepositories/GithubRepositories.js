@@ -136,6 +136,8 @@ class GithubRepositories extends Component {
         });
         throw ex;
       });
+
+    window.scrollTo(0, 0);
   }
 
   render() {
@@ -215,8 +217,8 @@ class GithubRepositories extends Component {
       <div>
         <RefreshIndicator
           size={72}
-          left={32}
-          top={24}
+          left={24}
+          top={32}
           status="loading"
           style={style.refresh}
           className={refreshClasses}
