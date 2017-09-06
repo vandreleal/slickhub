@@ -8,8 +8,6 @@ $color-github: #24292e;
   min-width: 360px;
 
   &-bar {
-    background-color: $color-github !important;
-
     svg {
       width: 24px;
       height: 24px;
@@ -24,7 +22,7 @@ $color-github: #24292e;
     display: inline-block;
     box-sizing: border-box;
     width: 100%;
-    padding: 0 0 20vh;
+    padding: 64px 0 20vh;
     background-color: $color-bg;
     border: 1px solid $color-border;
     border-top: none;
@@ -59,7 +57,7 @@ $color-github: #24292e;
     display: inline-block;
     box-sizing: border-box;
     width: 100%;
-    padding: 16px;
+    padding: 16px 32px;
     background-color: $color-bg;
     color: lighten($color-text, 70%);
     border-top: 1px solid $color-border;
@@ -72,6 +70,8 @@ $color-github: #24292e;
     margin: 0 auto;
 
     &-bar {
+      position: relative !important;
+
       h1 {
         text-align: center;
       }
@@ -111,6 +111,7 @@ $color-github: #24292e;
     }
 
     &-header {
+      padding-top: 0;
       &--description {
         margin: 48px 40px;
 

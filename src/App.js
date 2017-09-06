@@ -67,6 +67,13 @@ const limit = [
   { value: 100, label: '100' }
 ];
 
+const styles = {
+  appbar: {
+    position: 'fixed',
+    background: '#24292e'
+  }
+};
+
 class App extends Component {
 
   constructor(props) {
@@ -117,6 +124,7 @@ class App extends Component {
             className="app-bar"
             showMenuIconButton={false}
             title={this.config.app.name}
+            style={styles.appbar}
             iconElementRight={
               <IconMenu
                 className="app-bar--options"
