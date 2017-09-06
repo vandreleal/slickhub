@@ -1,5 +1,5 @@
 # SlickHub
-React application to explore GitHub repositories
+React application to explore GitHub repositories.
 
 ### `npm start`
 
@@ -26,4 +26,3 @@ By default, it also [includes a service worker](https://github.com/facebookincub
 ### `npm run deploy`
 
 Builds the app for production to the `build` folder and then deploy to the Github Pages branch `gh-pages`.<br>
-After deployed the app will be available at https://vandre.leal.github.io/github-explorer
