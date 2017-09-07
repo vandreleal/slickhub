@@ -56,7 +56,8 @@ const order = [
 const interval = [
   { value: 'today', label: 'Today' },
   { value: 'this_week', label: 'This Week' },
-  { value: 'this_month', label: 'This Month' }
+  { value: 'this_month', label: 'This Month' },
+  { value: 'this_year', label: 'This Year' }
 ];
 
 const limit = [

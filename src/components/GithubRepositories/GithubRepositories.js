@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Moment from 'moment';
 import RefreshIndicator from 'material-ui/RefreshIndicator';
 import Slider from 'react-slick';
 import { Github } from 'react-social-github';
@@ -42,41 +43,28 @@ class GithubRepositories extends Component {
     this.closing = true;
   }
 
-  formatDate(date) {
-    let d = new Date(date),
-        month = '' + (d.getMonth() + 1),
-        day = '' + d.getDate(),
-        year = d.getFullYear();
-
-    if (month.length < 2) month = '0' + month;
-    if (day.length < 2) day = '0' + day;
-
-    return [year, month, day].join('-');
-}
-
   getDate(interval) {
-    let now = new Date(),
+    let now = Moment(),
         date = '';
 
     switch (interval) {
       case 'today':
-          date = now.getFullYear() + '-' + (now.getMonth() + 1) + '-' + now.getDate();
+          date = now;
           break;
       case 'this_week':
-          now.setDate(now.getDate() - 7);
-          date = now.getFullYear() + '-' + (now.getMonth() + 1) + '-' + now.getDate();
+          date = now.subtract(1, 'weeks');
           break;
       case 'this_month':
-          date = now.getFullYear() + '-' + now.getMonth() + '-' + now.getDate();
+          date = now.subtract(1, 'months');
           break;
       case 'this_year':
-          date = (now.getFullYear() - 1) + '-' + (now.getMonth() + 1) + '-' + now.getDate();
+          date = now.startOf('year');
           break;
       default:
-          date = now.getFullYear() + '-' + (now.getMonth() + 1) + '-' + now.getDate();
+          date = now
     }
 
-    return this.formatDate(date);
+    return date.format('YYYY-MM-DD');
   }
 
   componentWillMount() {
