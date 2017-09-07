@@ -58,7 +58,7 @@ class GithubRepositories extends Component {
           date = now.subtract(1, 'months');
           break;
       case 'this_year':
-          date = now.startOf('year');
+          date = now.subtract(6, 'months');
           break;
       default:
           date = now

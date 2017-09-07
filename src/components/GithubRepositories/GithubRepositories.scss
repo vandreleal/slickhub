@@ -48,6 +48,13 @@
     .rsg-counters {
       .rsg-item {
         zoom: 0.85;
+
+        &:first-child {
+          padding-left: 0;
+        }
+        &:last-child {
+          padding-right: 0;
+        }
       }
     }
   }

@@ -57,7 +57,7 @@ const interval = [
   { value: 'today', label: 'Today' },
   { value: 'this_week', label: 'This Week' },
   { value: 'this_month', label: 'This Month' },
-  { value: 'this_year', label: 'This Year' }
+  { value: 'this_semester', label: 'This Semester' }
 ];
 
 const limit = [
