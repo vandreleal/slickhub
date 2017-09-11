@@ -6,7 +6,7 @@
 ## Screenshot
 ![SlickHub](https://raw.githubusercontent.com/vandreleal/slickhub/master/screenshots/01-slickhub_desktop.jpg)
 
-## GitHub Search API Parameters:
+## GitHub Search API Parameters
 + Criteria
 + Sort
 + Order
