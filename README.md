@@ -1,5 +1,28 @@
 # SlickHub
-React application to explore GitHub repositories.
+[https://vandreleal.github.io/slickhub](https://vandreleal.github.io/slickhub)
+
+> React application to explore GitHub repositories.
+
+## Screenshot
+![SlickHub](https://raw.githubusercontent.com/vandreleal/slickhub/master/screenshots/01-slickhub_desktop.jpg)
+
+## GitHub Search API Parameters:
++ Criteria
++ Sort
++ Order
++ Interval
++ Limit
+
+## Built with
++ [GitHub Search API](https://developer.github.com/v3/search 'GitHub Search API')
++ [React](https://facebook.github.io/react 'React')
++ [Material-UI](http://www.material-ui.com 'Material-UI')
++ [react-social-github](https://github.com/vandreleal/react-social-github 'react-social-github')
++ [react-slick](https://github.com/akiran/react-slick 'react-slick')
++ [Moment.js](https://momentjs.com  'Moment.js')
++ [Sass](http://sass-lang.com  'Sass')
+
+## Development Guide
 
 ### `npm start`
 
