@@ -15,9 +15,9 @@ import {
   grey900,
   grey700,
   grey500,
-  blueGrey500,
-  blueGrey300,
-  blueGrey100,
+  orange500,
+  orange300,
+  orange100,
   darkBlack,
   fullBlack
 } from 'material-ui/styles/colors';
@@ -30,9 +30,9 @@ const muiTheme = getMuiTheme({
     primary1Color: grey900,
     primary2Color: grey700,
     primary3Color: grey500,
-    accent1Color: blueGrey500,
-    accent2Color: blueGrey300,
-    accent3Color: blueGrey100,
+    accent1Color: orange500,
+    accent2Color: orange300,
+    accent3Color: orange100,
     textColor: darkBlack,
     shadowColor: fullBlack
   }
@@ -70,7 +70,7 @@ const limit = [
 const styles = {
   appbar: {
     position: 'fixed',
-    background: '#fff',
+    background: '#f4f6f8',
     title: {
       color: '#000'
     }
