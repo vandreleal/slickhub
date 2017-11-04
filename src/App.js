@@ -56,8 +56,7 @@ const order = [
 const interval = [
   { value: 'today', label: 'Today' },
   { value: 'this_week', label: 'This Week' },
-  { value: 'this_month', label: 'This Month' },
-  { value: 'this_semester', label: 'This Semester' }
+  { value: 'this_month', label: 'This Month' }
 ];
 
 const limit = [
@@ -71,7 +70,10 @@ const limit = [
 const styles = {
   appbar: {
     position: 'fixed',
-    background: '#24292e'
+    background: '#fff',
+    title: {
+      color: '#000'
+    }
   }
 };
 
@@ -124,12 +126,14 @@ class App extends Component {
           <AppBar
             className="app-bar"
             showMenuIconButton={false}
-            title={this.config.app.name}
             style={styles.appbar}
+            title={this.config.app.name}
+            titleStyle={styles.appbar.title}
             iconElementRight={
               <IconMenu
                 className="app-bar--options"
                 iconButtonElement={<IconButton><SettingsIcon /></IconButton>}
+                iconStyle={{ fill: 'rgba(0, 0, 0, 0.87)' }}
                 anchorOrigin={{horizontal: 'left', vertical: 'top'}}
                 targetOrigin={{horizontal: 'left', vertical: 'top'}}
               >
@@ -269,9 +273,9 @@ class App extends Component {
               </div>
             </div>
 
-            <h1 className="pure-g app-header--description">
-              <div className="pure-u pure-u-lg-3-4 pure-u-xl-1-2 headline">
-                These are the <span className="highlight">{ this.state.limit }</span> repositories <span className="highlight">{ this.state.criteria }</span> <span className="highlight">{ this.state.interval.replace('_', ' ') }</span> sorted by <span className="highlight">{ this.state.sort }</span> in <span className="highlight">{ this.state.order }</span> order
+            <h1 className="app-header--description">
+              <div className="headline">
+                These are the <span className="highlight">{ this.state.limit }</span> GitHub repositories <span className="highlight">{ this.state.criteria }</span> <span className="highlight">{ this.state.interval.replace('_', ' ') }</span> sorted by <span className="highlight">{ this.state.sort }</span> in <span className="highlight">{ this.state.order }</span> order
               </div>
             </h1>
           </div>

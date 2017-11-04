@@ -4,6 +4,13 @@
   min-width: 360px;
 
   &-bar {
+    box-shadow: none !important;
+    border-bottom: 1px solid $color-border;
+
+    h1  {
+      font-weight: 700 !important;
+    }
+
     svg {
       width: 24px;
       height: 24px;
@@ -18,35 +25,30 @@
     display: inline-block;
     box-sizing: border-box;
     width: 100%;
-    padding: $sp-ul 0 $header-offset;
-    background-color: $color-bg;
-    border: 1px solid $color-border;
-    border-top: none;
+    padding: $sp-ul 0 0;
     color: $color-text;
 
     &--description {
-      margin: $sp-md $sp-lg;
+      margin: $sp-lg;
 
       .headline {
-        color: lighten($color-text, 30%);
+        max-width: 700px;
+        color: $color-text;
         font-family: 'Roboto', sans-serif;
-        font-size: 20px;
+        font-size: 28px;
         font-weight: 300;
         line-height: 140%;
         word-spacing: 0.1em;
       }
 
       .highlight {
-        padding: 0 $sp-xs;
         font-weight: 700;
-        background-color: $color-highlight;
       }
     }
   }
 
   &-content {
     z-index: 20;
-    margin: -$header-offset 0 ($sp-ul + $sp-xl);
     background-color: $color-bg-light;
   }
 
@@ -71,9 +73,13 @@
 
     &-bar {
       position: relative !important;
+      padding-right: $sp-ul !important;
+      padding-left: $sp-ul !important;
+      border-bottom: none;
 
       h1 {
-        text-align: center;
+        margin-top: 16px !important;
+        font-size: 32px !important;
       }
 
       &--options {
@@ -85,17 +91,10 @@
       display: flex;
       align-items: flex-end;
       justify-content: center;
-      margin: $sp-lg $sp-xl 0;
+      margin: 0 $sp-xl;
 
       &--icon {
-        display: flex;
-        align-items: flex-end;
-        margin-bottom: 16px;
-
-        svg {
-          width: 32px;
-          height: 32px;
-        }
+        display: none;
       }
 
       &--option {
@@ -114,11 +113,7 @@
       padding-top: 0;
 
       &--description {
-        margin: $sp-xl;
-
-        .headline {
-          font-size: 24px;
-        }
+        margin: ($sp-xl + $sp-md) $sp-xl;
       }
     }
 
@@ -128,16 +123,28 @@
   }
 }
 @media screen and (min-width: $mq-md) {
-  .app {}
+  .app {
+  }
 }
 @media screen and (min-width: $mq-lg) {
   .app {
     &-header {
       &--description {
-        margin: ($sp-xl + $sp-md) $sp-xl;
-
         .headline {
           font-size: 32px;
+        }
+      }
+    }
+
+    &-filter {
+      &--icon {
+        display: flex;
+        align-items: flex-end;
+        margin-bottom: 16px;
+
+        svg {
+          width: 32px;
+          height: 32px;
         }
       }
     }
