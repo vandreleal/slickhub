@@ -7,15 +7,15 @@
   "author": "Vandre Leal <vandre.leal.candido@gmail.com> (http://vandreleal.github.io)",
   "dependencies": {
     "gh-pages": "^1.0.0",
-    "material-ui": "^0.19.1",
-    "moment": "^2.18.1",
+    "material-ui": "^0.19.4",
+    "moment": "^2.19.1",
     "node-sass-chokidar": "0.0.3",
     "npm-run-all": "^4.0.2",
-    "react": "^15.6.1",
-    "react-dom": "^15.6.1",
-    "react-ga": "^2.2.0",
+    "react": "^15.6.2",
+    "react-dom": "^15.6.2",
+    "react-ga": "^2.3.5",
     "react-octicons": "^0.2.0",
-    "react-slick": "^0.15.0",
+    "react-slick": "^0.15.4",
     "react-social-github": "^2.1.1"
   },
   "devDependencies": {
