@@ -16,44 +16,46 @@
   &-github {
     margin: 0 $sp-lg;
 
-    .rsg-index {
-      position: absolute;
-      left: $sp-sm;
-      width: 18px;
-      margin-top: $sp-lg;
-      padding: $sp-sm;
-      font-size: 16px;
-      font-weight: 300;
-      text-align: center;
-      color: lighten($color-github, 75%);
-      background-color: lighten($color-github, 25%);
-      border-radius: 50%;
-    }
-
-    .rsg-github {
-      width: 100%;
-      margin: $sp-sm $sp-md $sp-md 0;
-
-      .rsg-avatar {
-        border-radius: 4px;
+    .rsg {
+      &-index {
+        position: absolute;
+        left: $sp-sm;
+        width: 18px;
+        margin-top: $sp-lg;
+        padding: $sp-sm;
+        font-size: 16px;
+        font-weight: 300;
+        text-align: center;
+        color: lighten($color-github, 75%);
+        background-color: lighten($color-github, 25%);
+        border-radius: 50%;
       }
-    }
 
-    .rsg-github-wrapper {
-      display: block;
-      min-width: 0;
-      max-width: 100%;
-    }
+      &-github {
+        width: 100%;
+        margin: $sp-sm $sp-md $sp-md 0;
 
-    .rsg-counters {
-      .rsg-item {
-        zoom: 0.85;
-
-        &:first-child {
-          padding-left: 0;
+        .rsg-avatar {
+          border-radius: 4px;
         }
-        &:last-child {
-          padding-right: 0;
+      }
+
+      &-github-wrapper {
+        display: block;
+        min-width: 0;
+        max-width: 100%;
+      }
+
+      &-counters {
+        .rsg-item {
+          zoom: 0.85;
+
+          &:first-child {
+            padding-left: 0;
+          }
+          &:last-child {
+            padding-right: 0;
+          }
         }
       }
     }
@@ -96,15 +98,17 @@
     &-github {
       margin: 0 $sp-xl;
 
-      .rsg-index {
-        position: relative;
-        left: $sp-sm;
-        top: $sp-lg;
-        margin: -$sp-sm $sp-md 0 0;
-      }
+      .rsg {
+        &-index {
+          position: relative;
+          left: $sp-sm;
+          top: $sp-lg;
+          margin: -$sp-sm $sp-md 0 0;
+        }
 
-      .rsg-github {
-        width: $slick-card-width;
+        &-github {
+          width: $slick-card-width;
+        }
       }
     }
 
