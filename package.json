@@ -11,7 +11,7 @@
     "moment": "^2.19.1",
     "node-sass-chokidar": "0.0.3",
     "npm-run-all": "^4.0.2",
-    "react": "^15.6.2",
+    "react": "^15.7.0",
     "react-dom": "^15.6.2",
     "react-ga": "^2.3.5",
     "react-octicons": "^0.2.0",
