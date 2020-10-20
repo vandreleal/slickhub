@@ -16,7 +16,7 @@
     "react-ga": "^2.3.5",
     "react-octicons": "^0.2.0",
     "react-slick": "^0.15.4",
-    "react-social-github": "^2.1.1"
+    "react-social-github": "^2.1.2"
   },
   "devDependencies": {
     "react-scripts": "1.0.12"
