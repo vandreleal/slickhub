@@ -15,7 +15,7 @@
     "react-dom": "^15.6.2",
     "react-ga": "^2.3.5",
     "react-octicons": "^0.2.0",
-    "react-slick": "^0.15.4",
+    "react-slick": "^0.27.12",
     "react-social-github": "^2.1.2"
   },
   "devDependencies": {
