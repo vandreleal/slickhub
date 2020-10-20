@@ -6,7 +6,7 @@
   "private": true,
   "author": "Vandre Leal <vandre.leal.candido@gmail.com> (http://vandreleal.github.io)",
   "dependencies": {
-    "gh-pages": "^1.0.0",
+    "gh-pages": "^3.1.0",
     "material-ui": "^0.19.4",
     "moment": "^2.19.1",
     "node-sass-chokidar": "1.5.0",
