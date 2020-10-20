@@ -19,7 +19,7 @@
     "react-social-github": "^2.1.2"
   },
   "devDependencies": {
-    "react-scripts": "1.0.12"
+    "react-scripts": "3.4.3"
   },
   "scripts": {
     "build-css": "node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/",
